@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarka Indian Kitchen - Authentic Vegan Indian Cuisine</title>
+    <meta name="description" content="Tarka Indian Kitchen offers delicious, authentic vegan Indian dishes">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="navbar-container">
+            <div class="navbar">
+                <div class="navbar-left">
+                    <a class="fusion-logo-link" href="index.html">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ41d0DR8h-c_-CEwuxEcE8KCwQAprb5ewrnA&s" alt="Tarka Indian Kitchen Logo">
+                    </a>
+                    
+                    
+                    <div class="menu-link" onclick="openMenuModal()">Menu</div>
+                    <div>Catering</div>
+                </div>
+                <div class="navbar-right">
+                    <div class="find-a-store">
+                        <svg aria-hidden="true" class="valign-middle pr2" focusable="false" preserveAspectRatio="xMidYMid meet" style="width: 32px; height: 32px; overflow: visible; fill: currentColor;" viewBox="0 0 24 24">
+                            <path d="M12,11.475 C10.5214286,11.475 9.32142857,10.299 9.32142857,8.85 C9.32142857,7.401 10.5214286,6.225 12,6.225 C13.4785714,6.225 14.6785714,7.401 14.6785714,8.85 C14.6785714,10.299 13.4785714,11.475 12,11.475 M12,1.5 C7.85357143,1.5 4.5,4.7865 4.5,8.85 C4.5,14.3625 12,22.5 12,22.5 C12,22.5 19.5,14.3625 19.5,8.85 C19.5,4.7865 16.1464286,1.5 12,1.5"></path>
+                        </svg>
+                        <div>Find a Location</div>
+                    </div>
+                    <div class="sign-in" onclick="openSignInModal()">Sign In</div>
+                    <div class="join-now" onclick="openOrderModal()">Order Online</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Authentic Vegan Indian Cuisine</h1>
+                <p>Discover the flavors of India, entirely plant-based</p>
+                <button onclick="openOrderModal()" class="btn-cta">Order Now</button>
+            </div>
+        </section>
+
+<!-- Menu Modal -->
+<div id="menu-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeMenuModal()">&times;</span>
+        <h2>Vegan Menu</h2>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <img src="https://rainbowplantlife.com/wp-content/uploads/2021/02/braised-indian-chickpea-stew-in-bowl-with-naan-and-yogurt-1-of-1-scaled.jpg" alt="Chana Masala">
+                <div class="menu-item-details">
+                    <h3>Chana Masala</h3>
+                    <p>Spicy chickpea curry with aromatic Indian spices</p>
+                    <div class="menu-item-footer">
+                        <span class="price">$12.99</span>
+                        <button onclick="addToCart('Chana Masala')">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="https://www.madhuseverydayindian.com/wp-content/uploads/2022/11/easy-vegetable-biryani.jpg" alt="Vegetable Biryani">
+                <div class="menu-item-details">
+                    <h3>Vegetable Biryani</h3>
+                    <p>Fragrant rice dish with mixed vegetables and spices</p>
+                    <div class="menu-item-footer">
+                        <span class="price">$14.99</span>
+                        <button onclick="addToCart('Vegetable Biryani')">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    <!-- Add more menu items maybe indiannnns -->
+
+        <section id="products">
+            <h2>Our Menu</h2>
+            <div class="product-grid">
+                <div class="product-item">
+                    <img src="https://rainbowplantlife.com/wp-content/uploads/2021/02/braised-indian-chickpea-stew-in-bowl-with-naan-and-yogurt-1-of-1-scaled.jpg" alt="Chana Masala">
+                    <h3>Chana Masala</h3>
+                    <p>Spicy chickpea curry with aromatic spices.</p>
+                    <button onclick="openOrderModal()">Order Now</button>
+                </div>
+                <div class="product-item">
+                    <img src="https://www.madhuseverydayindian.com/wp-content/uploads/2022/11/easy-vegetable-biryani.jpg" alt="Vegetable Biryani">
+                    <h3>Vegetable Biryani</h3>
+                    <p>Fragrant rice dish with mixed vegetables.</p>
+                    <button onclick="openOrderModal()">Order Now</button>
+                </div>
+            </div>
+        </section>
+        <section id="testimonials">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyqZ9SENINHkuPW_hooRJwEKihxMl3DnrmxQ&s" alt="Customer 1">
+                    <p>"The best vegan Indian food I've ever had, made me the best basketball player! Highly recommend."</p>
+                    <p class="customer-name">Lebron James</p>
+                </div>
+                <div class="testimonial">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKXVRSiG8dmfvXgN7vojJMRhw1xp1iZzAQLw&s" alt="Customer 2">
+                    <p>"Delicious, flavorful, and great service! My last name is the same as this dish I ate!"</p>
+                    <p class="customer-name">Steph. Curry</p>
+
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- Sign In Modal -->
+        <div id="signin-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeSignInModal()">&times;</span>
+                <h2>Sign In</h2>
+                <form id="signin-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Sign In</button>
+                    <p class="form-footer">
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                        <span>New here? <a href="#" class="create-account">Create Account</a></span>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <section id="about">
+            <h2>About Us</h2>
+            <p>At Tarka Indian Kitchen, we offer authentic, plant-based Indian cuisine inspired by traditional recipes. Our mission is to provide delicious and healthy food for everyone, while honoring the rich culinary heritage of India.</p>
+        </section>
+        <section id="contact">
+    <h2>Contact Us</h2>
+    <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn-cta">Send Message</button>
+    </form>
+</section>
+
+
+        <!-- Order Online Modal -->
+        <div id="order-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeOrderModal()">&times;</span>
+                <h2>Order Online</h2>
+                <p>Select your nearest location to start ordering.</p>
+                <div class="location-selector">
+                    <div class="location-grid">
+                        <div class="location-card">
+                            <h3>Downtown Location</h3>
+                            <p>Cinco Ranch High School</p>
+                            <button onclick="selectLocation('Section 8')">Select</button>
+                        </div>
+                        <div class="location-card">
+                            <h3>Midtown Location</h3>
+                            <p>Cinco Ranch Highschool</p>
+                            <button onclick="selectLocation('Midtown')">Select</button>
+                        </div>
+                        <div class="location-card">
+                            <h3>Uptown Location</h3>
+                            <p>Cinco Ranch Middle School</p>
+                            <button onclick="selectLocation('Uptown')">Select</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="https://spongefan.fandom.com/wiki/The_Krusty_Krab_Menu">Menu</a></li>
+                    <li><a href="https://catering.chipotle.com/?gclsrc=aw.ds&gad_source=1&%243p=a_google_adwords&%24always_deeplink=false&~ad_set_id=35675494959&~campaign_id=699162699&~channel=g&~keyword=chipotle%20catering&~placement&gclid=Cj0KCQiAu8W6BhC-ARIsACEQoDDxWt9VS4GP0Gj7n_HTrkvCKIh1xKjKr6kpieRbF4VP-CGeVAoYVuYaAmrtEALw_wcB&%24web_only=true&_branch_match_id=1393409044318646176">Catering</a></li>
+                    <li><a href="https://www.google.com/maps/place/Parkway+Gardens+Apartments/@41.7748986,-87.61783,17z/data=!3m1!4b1!4m6!3m5!1s0x880e292aeba9f359:0x95c425cf4ac95d8e!8m2!3d41.7748986!4d-87.6152497!16s%2Fm%2F0127ydh1?entry=ttu&g_ep=EgoyMDI0MTIwMy4wIKXMDSoASAFQAw%3D%3D">Locations</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/zuck" class="social-icon">Facebook</a>
+                    <a href="https://www.instagram.com/_kyle.do/?hl=en" class="social-icon">Instagram</a>
+                    <a href="https://x.com/realDonaldTrump" class="social-icon">Twitter</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                </div>
+                <div class="customer-service">
+                    <h3>Customer Service</h3>
+                    <p>Need help? Contact us:</p>
+                    <div class="contact-info">
+                        <p>📞 (555) 123-4567</p>
+                        <p>✉️ support@akshay.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tarka Indian Kitchen. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function openMenuModal() {
+            document.getElementById('menu-modal').style.display = 'block';
+        }
+
+        function closeMenuModal() {
+            document.getElementById('menu-modal').style.display = 'none';
+        }
+
+        function openSignInModal() {
+            document.getElementById('signin-modal').style.display = 'block';
+        }
+
+        function closeSignInModal() {
+            document.getElementById('signin-modal').style.display = 'none';
+        }
+
+        function openOrderModal() {
+            document.getElementById('order-modal').style.display = 'block';
+        }
+
+        function closeOrderModal() {
+            document.getElementById('order-modal').style.display = 'none';
+        }
+
+        function addToCart(item) {
+            alert(item + ' added to cart!');
+        }
+
+        function selectLocation(location) {
+            alert(`Selected ${location} location. Redirecting to order page...`);
+            closeOrderModal();
+        }
+
+        // Close modals when clicking outside
+        window.onclick = function(event) {
+            const menuModal = document.getElementById('menu-modal');
+            const signInModal = document.getElementById('signin-modal');
+            const orderModal = document.getElementById('order-modal');
+            
+            if (event.target == menuModal) menuModal.style.display = 'none';
+            if (event.target == signInModal) signInModal.style.display = 'none';
+            if (event.target == orderModal) orderModal.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
