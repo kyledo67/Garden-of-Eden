@@ -105,7 +105,7 @@ body {
 }
 
 #hero p {
-    color: #060505;
+    color: #ffffff;
     margin-bottom: 30px;
 }
 
@@ -535,3 +535,4 @@ button[type="submit"] {
 .footer-section a:hover {
     color: #ff6b00;
 }
+
