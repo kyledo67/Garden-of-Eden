@@ -374,8 +374,6 @@ footer a:hover {
     border-top: 1px solid #323131;
 }
 
-/* Customer Service and Other Modal Styles (Unchanged) */
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .navbar {
@@ -529,7 +527,7 @@ button[type="submit"] {
     font-weight: bold;
 }
 .footer-section a {
-    color: #333;
+    color: #ececec;
     text-decoration: none;
     transition: color 0.3s ease;
 }
