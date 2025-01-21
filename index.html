@@ -3,264 +3,1456 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tarka Indian Kitchen - Authentic Vegan Indian Cuisine</title>
-    <meta name="description" content="Tarka Indian Kitchen offers delicious, authentic vegan Indian dishes">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Garden of Eden - Farm-to-Table Vegetarian Restaurant</title>
+    <meta name="description" content="Experience fresh, organic vegetarian cuisine from our own sustainable gardens">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #2C1810;
+            --secondary-bg: #4A3B2C;
+            --accent-color: #8B9D77;
+            --accent-color-light: #C5D1BA;
+            --text-primary: #F5F5F5;
+            --text-secondary: #E0E0E0;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Enhanced section transitions */
+        section {
+            position: relative;
+            background: linear-gradient(180deg, 
+                var(--primary-bg) 0%,
+                var(--secondary-bg) 50%,
+                var(--primary-bg) 100%
+            );
+            transition: background 0.5s ease;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(to bottom, 
+                transparent 0%,
+                var(--primary-bg) 100%
+            );
+        }
+
+        section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(to top, 
+                transparent 0%,
+                var(--primary-bg) 100%
+            );
+            z-index: 1;
+        }
+
+        .navbar {
+            background: rgba(10, 9, 7, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        .navbar .primary-btn {
+            padding: 0.5rem 1.25rem;  /* Reduced padding */
+            font-size: 0.875rem;      /* Smaller font size */
+            transform: translateY(-1px); /* Slight adjustment for vertical alignment */
+            margin-left: 1rem;        /* Add some space from nav links */
+            line-height: 1.25;        /* Improved line height for better alignment */
+        }
+
+        .navbar a {
+            position: relative;
+            transition: all 0.3s ease;
+}
+
+        .navbar a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+}
+
+        .navbar a:hover:after {
+            width: 100%;
+}
+
+        .navbar.scrolled {
+            background: rgba(74, 59, 44, 0.95);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card {
+            background: rgba(74, 59, 44, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 245, 245, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            background: rgba(74, 59, 44, 0.8);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+        .primary-btn {
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
+            color: var(--primary-bg);
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+        .primary-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-color: var(--accent-color-light);
+}
+
+        .secondary-btn {
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+            background: rgba(139, 157, 119, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+        .secondary-btn:hover {
+            background: rgba(139, 157, 119, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+        /* Enhanced animations */
+        @keyframes grow {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.7; }
+        }
+
+        .plant-animation {
+            animation: grow 4s infinite ease-in-out;
+        }
+
+        @keyframes floatLeaf {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% { 
+                transform: translateY(-20px) rotate(10deg);
+                opacity: 1;
+            }
+        }
+
+        .floating-leaf {
+            position: absolute;
+            width: 60px;
+            height: 50px;
+            fill: var(--accent-color);
+            opacity: 0.7;
+            filter: blur(1px);
+            transition: all 0.5s ease;
+        }
+
+        .floating-leaf-1 {
+            top: 20%;
+            left: 5%;
+            animation: floatLeaf 7s infinite ease-in-out;
+        }
+
+        .floating-leaf-2 {
+            top: 40%;
+            right: 8%;
+            animation: floatLeaf 7s infinite ease-in-out reverse;
+        }
+
+        .floating-leaf-3 {
+            bottom: 30%;
+            left: 10%;
+            animation: floatLeaf 5s infinite ease-in-out;
+        }
+        .leaf-vein {
+            stroke: var(--accent-color-light);
+            fill: none;
+            opacity: 0.6;
+}
+
+        .floating-leaf path:not(.leaf-vein) {
+            fill: var(--accent-color);
+}
+
+        /* Smooth section transitions */
+        .hero-section {
+            background: linear-gradient(180deg,
+                var(--secondary-bg) 0%,
+                var(--primary-bg) 100%
+            );
+            position: relative;
+            z-index: 1;
+        }
+        #calendar {
+            background: rgba(2, 2, 2, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 245, 245, 0.2);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        #calendar div, #calendar button {
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+        }
+
+        #calendar div {
+            color: #8B9D77;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        #calendar button {
+            background: rgba(139, 157, 119, 0.1);
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            color: #F5F5F5;
+            font-size: 0.875rem;
+        }
+
+        #calendar button:hover:not([disabled]) {
+            background: #8B9D77;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #calendar button[disabled] {
+            opacity: 0.5;
+            cursor: not-allowed;
+            background: rgba(74, 59, 44, 0.4);
+        }
+        #reservationModal {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        #reservationModal .modal-content {
+            background: linear-gradient(145deg, #4A3B2C, #2C1810);
+            border: 1px solid rgba(139, 157, 119, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border-radius: 1rem;
+            padding: 2rem;
+        }
+        #timeSlots {
+            background: rgba(74, 59, 44, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 245, 245, 0.2);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        #timeSlots button {
+            background: rgba(139, 157, 119, 0.1);
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+        }
+
+        #timeSlots button:hover {
+            background: #8B9D77;
+            transform: translateY(-2px);
+        }
+
+        #menu {
+            background: linear-gradient(180deg,
+                var(--primary-bg) 0%,
+                var(--secondary-bg) 50%,
+                var(--primary-bg) 100%
+            );
+        }
+
+        #benefits {
+            background: linear-gradient(180deg,
+                var(--primary-bg) 0%,
+                var(--secondary-bg) 30%,
+                var(--secondary-bg) 70%,
+                var(--primary-bg) 100%
+            );
+        }
+
+        #testimonials {
+            background: linear-gradient(180deg,
+                var(--primary-bg) 0%,
+                var(--secondary-bg) 50%,
+                var(--primary-bg) 100%
+            );
+        }
+
+        #farm {
+            background: linear-gradient(180deg,
+                var(--primary-bg) 0%,
+                var(--secondary-bg) 50%,
+                var(--secondary-bg) 100%
+            );
+            position: relative;
+            z-index: 1;
+        }
+
+        footer {
+            background: linear-gradient(180deg,
+                var(--secondary-bg) 0%,
+                var(--primary-bg) 100%
+            );
+            position: relative;
+            z-index: 1;
+        }
+        .benefit-card {
+            background: rgba(74, 59, 44, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 245, 245, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+}
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            background: rgba(74, 59, 44, 0.8);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+        /* Enhanced testimonial styles */
+        .testimonial-wrapper {
+            position: relative;
+            height: 200px; /* Adjust based on your content height */
+            width: 100%;
+}
+
+        .testimonial-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+}
+
+        .testimonial-slide.active {
+            opacity: 1;
+}
+        .testimonial-card {
+            background: rgba(74, 59, 44, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 245, 245, 0.2);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            background: rgba(74, 59, 44, 0.8);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}   
+
+        /* Footer enhancement */
+        footer {
+            background: linear-gradient(0deg,
+                var(--primary-bg) 0%,
+                var(--secondary-bg) 100%
+            );
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Enhanced form elements */
+        input[type="email"] {
+            background: rgba(74, 59, 44, 0.4);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        input[type="email"]:focus {
+            background: rgba(74, 59, 44, 0.6);
+            outline: none;
+            border-color: var(--accent-color);
+        }
+    
+    </style>
 </head>
-<body>
-    <header>
-        <div class="navbar-container">
-            <div class="navbar">
-                <div class="navbar-left">
-                    <a class="fusion-logo-link" href="index.html">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ41d0DR8h-c_-CEwuxEcE8KCwQAprb5ewrnA&s" alt="Tarka Indian Kitchen Logo">
-                    </a>
-                    
-                    
-                    <div class="menu-link" onclick="openMenuModal()">Menu</div>
-                    <div>Catering</div>
-                </div>
-                <div class="navbar-right">
-                    <div class="find-a-store">
-                        <svg aria-hidden="true" class="valign-middle pr2" focusable="false" preserveAspectRatio="xMidYMid meet" style="width: 32px; height: 32px; overflow: visible; fill: currentColor;" viewBox="0 0 24 24">
-                            <path d="M12,11.475 C10.5214286,11.475 9.32142857,10.299 9.32142857,8.85 C9.32142857,7.401 10.5214286,6.225 12,6.225 C13.4785714,6.225 14.6785714,7.401 14.6785714,8.85 C14.6785714,10.299 13.4785714,11.475 12,11.475 M12,1.5 C7.85357143,1.5 4.5,4.7865 4.5,8.85 C4.5,14.3625 12,22.5 12,22.5 C12,22.5 19.5,14.3625 19.5,8.85 C19.5,4.7865 16.1464286,1.5 12,1.5"></path>
-                        </svg>
-                        <div>Find a Location</div>
+<body class="min-h-screen">
+    <nav class="navbar fixed w-full top-0 z-50 px-4 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="#" class="text-2xl font-bold gradient-text">Garden of Eden</a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a onclick="scrollToTop(event)" class="text-white hover:text-cyan-400 transition-colors cursor-pointer">Home</a>
+                <a href="#menu" class="text-white hover:text-cyan-400 transition-colors">Menu</a>
+                <a href="#farm" class="text-white hover:text-cyan-400 transition-colors">Our Farm</a>
+                <a href="#testimonials" class="text-white hover:text-cyan-400 transition-colors">Reviews</a>
+                <a class="text-white hover:text-cyan-400 transition-colors cursor-pointer">References</a>
+                <button id="reserveButton" class="primary-btn px-6 py-2 rounded-full font-medium">Reserve Now</button>
+            </div>
+        </div>
+    </nav>
+    
+    
+
+    <section class="hero-section min-h-screen flex items-center justify-center px-4 pt-20">
+        <svg class="floating-leaf floating-leaf-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.75 3.37C15.84 2.69 13.13 2 12 2C10.87 2 8.16 2.69 6.25 3.37C4.09 4.13 2.5 6.2 2.5 8.5C2.5 10.8 4.09 12.87 6.25 13.63C8.16 14.31 10.87 15 12 15C13.13 15 15.84 14.31 17.75 13.63C19.91 12.87 21.5 10.8 21.5 8.5C21.5 6.2 19.91 4.13 17.75 3.37Z"/>
+        </svg>
+        <svg class="floating-leaf floating-leaf-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.75 3.37C15.84 2.69 13.13 2 12 2C10.87 2 8.16 2.69 6.25 3.37C4.09 4.13 2.5 6.2 2.5 8.5C2.5 10.8 4.09 12.87 6.25 13.63C8.16 14.31 10.87 15 12 15C13.13 15 15.84 14.31 17.75 13.63C19.91 12.87 21.5 10.8 21.5 8.5C21.5 6.2 19.91 4.13 17.75 3.37Z"/>
+        </svg>
+        <svg class="floating-leaf floating-leaf-3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.75 3.37C15.84 2.69 13.13 2 12 2C10.87 2 8.16 2.69 6.25 3.37C4.09 4.13 2.5 6.2 2.5 8.5C2.5 10.8 4.09 12.87 6.25 13.63C8.16 14.31 10.87 15 12 15C13.13 15 15.84 14.31 17.75 13.63C19.91 12.87 21.5 10.8 21.5 8.5C21.5 6.2 19.91 4.13 17.75 3.37Z"/>
+        </svg>
+        <svg class="floating-leaf floating-leaf-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C10.87 2 8.16 2.69 6.25 3.37C4.09 4.13 2.5 6.2 2.5 8.5C2.5 10.8 4.09 12.87 6.25 13.63C8.16 14.31 10.87 15 12 15C13.13 15 15.84 14.31 17.75 13.63C19.91 12.87 21.5 10.8 21.5 8.5C21.5 6.2 19.91 4.13 17.75 3.37C15.84 2.69 13.13 2 12 2Z" />
+            <!-- Main vein -->
+            <path class="leaf-vein" d="M12 3.5V13.5" stroke-width="0.3" />
+            <!-- Secondary veins -->
+            <path class="leaf-vein" d="M12 5L9 7.5" stroke-width="0.2" />
+            <path class="leaf-vein" d="M12 5L15 7.5" stroke-width="0.2" />
+            <path class="leaf-vein" d="M12 7L8.5 9.5" stroke-width="0.2" />
+            <path class="leaf-vein" d="M12 7L15.5 9.5" stroke-width="0.2" />
+            <path class="leaf-vein" d="M12 9L8 11" stroke-width="0.2" />
+            <path class="leaf-vein" d="M12 9L16 11" stroke-width="0.2" />
+        </svg>
+        <div class="text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                From Our <span class="gradient-text">Garden</span><br>
+                to Your <span class="gradient-text">Plate</span>
+            </h1>
+            <p class="text-gray-400 text-xl mb-8 max-w-2xl mx-auto">
+                Experience the pure taste of nature with our farm-fresh organic cuisine,
+                crafted with love and respect for the environment.
+            </p>
+            <div class="flex flex-col md:flex-row gap-4 justify-center">
+                <button id="heroReserveButton" class="primary-btn px-6 py-2 rounded-full font-medium">
+                    Reserve Now
+                </button>
+                <button class="secondary-btn px-8 py-3 rounded-full text-lg font-medium">
+                    Explore Our Farm
+                </button>
+            </div>
+            <div class="flex justify-center mt-12">
+                <svg class="plant-animation w-24 h-24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#34D399" d="M12 2L8 6.5l4-1.5v3l-4-1.5 4 5.5v2l-4-1.5 4 5.5v4c0 .6-.4 1-1 1s-1-.4-1-1v-3l-3 1.5 3-4.5v-2l-3 1.5 3-4.5v-2l-3 1.5L12 2zm0 0l4 4.5-4-1.5v3l4-1.5-4 5.5v2l4-1.5-4 5.5v4c0 .6.4 1 1 1s1-.4 1-1v-3l3 1.5-3-4.5v-2l3 1.5-3-4.5v-2l3 1.5L12 2z"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-20 px-4 bg-secondary-bg">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">Our Seasonal Menu</h2>
+            <p class="text-gray-400 text-center mb-12 max-w-2xl mx-auto">Every dish is crafted with organic ingredients harvested from our farm, celebrating the natural flavors of each season.</p>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 gradient-text">Starters</h3>
+                        <div class="space-y-6">
+                            <div class="card p-6 rounded-lg">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-bold mb-2">Garden Fresh Bruschetta</h4>
+                                        <p class="text-gray-400">Toasted sourdough, heirloom tomatoes, fresh basil, garlic</p>
+                                    </div>
+                                    <span class="text-cyan-400">$12</span>
+                                </div>
+                            </div>
+                            <div class="card p-6 rounded-lg">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-bold mb-2">Rainbow Root Soup</h4>
+                                        <p class="text-gray-400">Seasonal root vegetables, herbs, crushed hazelnuts</p>
+                                    </div>
+                                    <span class="text-cyan-400">$14</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="sign-in" onclick="openSignInModal()">Sign In</div>
-                    <div class="join-now" onclick="openOrderModal()">Order Online</div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 gradient-text">Main Courses</h3>
+                        <div class="space-y-6">
+                            <div class="card p-6 rounded-lg">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-bold mb-2">Wild Mushroom Risotto</h4>
+                                        <p class="text-gray-400">Arborio rice, foraged mushrooms, fresh herbs, truffle oil</p>
+                                    </div>
+                                    <span class="text-cyan-400">$24</span>
+                                </div>
+                            </div>
+                            <div class="card p-6 rounded-lg">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-bold mb-2">Garden Buddha Bowl</h4>
+                                        <p class="text-gray-400">Quinoa, roasted vegetables, avocado, tahini dressing</p>
+                                    </div>
+                                    <span class="text-cyan-400">$22</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 gradient-text">Desserts</h3>
+                        <div class="space-y-6">
+                            <div class="card p-6 rounded-lg">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-bold mb-2">Lavender Honey Panna Cotta</h4>
+                                        <p class="text-gray-400">Farm-grown lavender, local honey, seasonal berries</p>
+                                    </div>
+                                    <span class="text-cyan-400">$10</span>
+                                </div>
+                            </div>
+                            <div class="card p-6 rounded-lg">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-bold mb-2">Apple & Rosemary Tart</h4>
+                                        <p class="text-gray-400">Heritage apples, garden rosemary, vegan pastry</p>
+                                    </div>
+                                    <span class="text-cyan-400">$12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 gradient-text">Drinks</h3>
+                        <div class="space-y-6">
+                            <div class="card p-6 rounded-lg">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-bold mb-2">Garden Herb Spritzer</h4>
+                                        <p class="text-gray-400">Fresh mint, basil, sparkling water, lime</p>
+                                    </div>
+                                    <span class="text-cyan-400">$8</span>
+                                </div>
+                            </div>
+                            <div class="card p-6 rounded-lg">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <h4 class="text-lg font-bold mb-2">Botanical Tea Selection</h4>
+                                        <p class="text-gray-400">House-dried herbs and flowers from our garden</p>
+                                    </div>
+                                    <span class="text-cyan-400">$6</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
-
-    <main>
-        <section id="hero">
-            <div class="hero-content">
-                <h1>Authentic Vegan Indian Cuisine</h1>
-                <p>Discover the flavors of India, entirely plant-based</p>
-                <button onclick="openOrderModal()" class="btn-cta">Order Now</button>
+    </section>
+    <section class="py-20 px-4 bg-[#2C1810]" id="benefits">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">
+                <span class="gradient-text">Key</span> Benefits
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="benefit-card">
+                    <div class="text-4xl mb-4">🌱</div>
+                    <h3 class="text-xl font-bold mb-3 gradient-text">Farm Fresh</h3>
+                    <p class="text-gray-300">All produce harvested daily from our organic farm, ensuring peak freshness and flavor in every dish</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="text-4xl mb-4">♻️</div>
+                    <h3 class="text-xl font-bold mb-3 gradient-text">Zero Waste</h3>
+                    <p class="text-gray-300">Commitment to sustainable practices with composting and minimal packaging</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="text-4xl mb-4">🌿</div>
+                    <h3 class="text-xl font-bold mb-3 gradient-text">Educational Tours</h3>
+                    <p class="text-gray-300">Weekly farm tours and cooking classes to connect you with your food's journey</p>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-<!-- Menu Modal -->
-<div id="menu-modal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeMenuModal()">&times;</span>
-        <h2>Vegan Menu</h2>
-        <div class="menu-grid">
-            <div class="menu-item">
-                <img src="https://rainbowplantlife.com/wp-content/uploads/2021/02/braised-indian-chickpea-stew-in-bowl-with-naan-and-yogurt-1-of-1-scaled.jpg" alt="Chana Masala">
-                <div class="menu-item-details">
-                    <h3>Chana Masala</h3>
-                    <p>Spicy chickpea curry with aromatic Indian spices</p>
-                    <div class="menu-item-footer">
-                        <span class="price">$12.99</span>
-                        <button onclick="addToCart('Chana Masala')">Add to Cart</button>
+    <section class="py-20 px-4 bg-secondary-bg" id="testimonials">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16">
+                What Our <span class="gradient-text">Guests</span> Say
+            </h2>
+            
+            <div class="relative" id="testimonials-container">
+                <div class="testimonial-wrapper">
+                    <!-- Slides will be absolutely positioned -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="text-lg text-gray-300 mb-4">"The farm-to-table experience at Garden of Eden is unmatched. The fresh vegetables and innovative dishes changed my perspective on vegetarian cuisine."</p>
+                            <p class="gradient-text font-bold">Kyle D.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="text-lg text-gray-300 mb-4">"As someone who was skeptical about vegetarian restaurants, Garden of Eden completely won me over. Their commitment to organic farming is evident in every dish."</p>
+                            <p class="gradient-text font-bold">Akshay M.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="text-lg text-gray-300 mb-4">"The connection between the farm and kitchen is beautiful to witness. You can taste the difference in vegetables harvested the same day."</p>
+                            <p class="gradient-text font-bold">Ahsan A.</p>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="text-lg text-gray-300 mb-4">"I decided to go here after a soccer game after being benched all game, the food was so delightful it turned my frown to a happy one even though I was benched. I quit varsity soccer so I could eat here more!"</p>
+                            <p class="gradient-text font-bold">William W.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="text-lg text-gray-300 mb-4">"Oh. My. Goodness. Garden of Eden, Tears, literal tearrs. This is unfathomable; your restaurant resonates deep inside my heart. It's something where I can look out the windows, drink some coffee, and really touch with. How are you able to use your food to penetrate through the human soul? I am so jubilant to have a high classed restaurant as you in my vicinity. With this profound resolution, we as humans, are able to articulate more flavors in an expansive way.</pp>
+                            <p class="gradient-text font-bold">Vincent D.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide">
+                        <div class="testimonial-card">
+                            <p class="text-lg text-gray-300 mb-4">"Oh, I beseech thee, kind soul, lift me from this place. With all my heart, I implore thy aid, for I am bound in woe and yearn for deliverance. Grant me thy swift grace, and let me rest no longer in despair, and take me to thy restaurant again."</pp>
+                            <p class="gradient-text font-bold">William Shakespeare.</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="menu-item">
-                <img src="https://www.madhuseverydayindian.com/wp-content/uploads/2022/11/easy-vegetable-biryani.jpg" alt="Vegetable Biryani">
-                <div class="menu-item-details">
-                    <h3>Vegetable Biryani</h3>
-                    <p>Fragrant rice dish with mixed vegetables and spices</p>
-                    <div class="menu-item-footer">
-                        <span class="price">$14.99</span>
-                        <button onclick="addToCart('Vegetable Biryani')">Add to Cart</button>
-                    </div>
-                </div>
+        </div>
+    </section>
+            <!-- Add navigation dots -->
+            <div class="flex justify-center mt-6 space-x-2" id="testimonial-dots">
             </div>
         </div>
     </div>
-</div>
-
-                    <!-- Add more menu items maybe indiannnns -->
-
-        <section id="products">
-            <h2>Our Menu</h2>
-            <div class="product-grid">
-                <div class="product-item">
-                    <img src="https://rainbowplantlife.com/wp-content/uploads/2021/02/braised-indian-chickpea-stew-in-bowl-with-naan-and-yogurt-1-of-1-scaled.jpg" alt="Chana Masala">
-                    <h3>Chana Masala</h3>
-                    <p>Spicy chickpea curry with aromatic spices.</p>
-                    <button onclick="openOrderModal()">Order Now</button>
-                </div>
-                <div class="product-item">
-                    <img src="https://www.madhuseverydayindian.com/wp-content/uploads/2022/11/easy-vegetable-biryani.jpg" alt="Vegetable Biryani">
-                    <h3>Vegetable Biryani</h3>
-                    <p>Fragrant rice dish with mixed vegetables.</p>
-                    <button onclick="openOrderModal()">Order Now</button>
-                </div>
-            </div>
-        </section>
-        <section id="testimonials">
-            <h2>What Our Customers Say</h2>
-            <div class="testimonial-container">
-                <div class="testimonial">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyqZ9SENINHkuPW_hooRJwEKihxMl3DnrmxQ&s" alt="Customer 1">
-                    <p>"The best vegan Indian food I've ever had, made me the best basketball player! Highly recommend."</p>
-                    <p class="customer-name">Lebron James</p>
-                </div>
-                <div class="testimonial">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKXVRSiG8dmfvXgN7vojJMRhw1xp1iZzAQLw&s" alt="Customer 2">
-                    <p>"Delicious, flavorful, and great service! My last name is the same as this dish I ate!"</p>
-                    <p class="customer-name">Steph. Curry</p>
-
-                </div>
-            </div>
-        </section>
-        
-
-        <!-- Sign In Modal -->
-        <div id="signin-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn" onclick="closeSignInModal()">&times;</span>
-                <h2>Sign In</h2>
-                <form id="signin-form">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="Enter your email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" id="password" placeholder="Enter your password" required>
-                    </div>
-                    <button type="submit" class="btn-primary">Sign In</button>
-                    <p class="form-footer">
-                        <a href="#" class="forgot-password">Forgot Password?</a>
-                        <span>New here? <a href="#" class="create-account">Create Account</a></span>
-                    </p>
-                </form>
-            </div>
-        </div>
-
-        <section id="about">
-            <h2>About Us</h2>
-            <p>At Tarka Indian Kitchen, we offer authentic, plant-based Indian cuisine inspired by traditional recipes. Our mission is to provide delicious and healthy food for everyone, while honoring the rich culinary heritage of India.</p>
-        </section>
-        <section id="contact">
-    <h2>Contact Us</h2>
-    <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn-cta">Send Message</button>
-    </form>
 </section>
 
 
-        <!-- Order Online NOW -->
-        <div id="order-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-btn" onclick="closeOrderModal()">&times;</span>
-                <h2>Order Online</h2>
-                <p>Select your nearest location to start ordering.</p>
-                <div class="location-selector">
-                    <div class="location-grid">
-                        <div class="location-card">
-                            <h3>Downtown Location</h3>
-                            <p>Cinco Ranch High School</p>
-                            <button onclick="selectLocation('Section 8')">Select</button>
-                        </div>
-                        <div class="location-card">
-                            <h3>Midtown Location</h3>
-                            <p>Cinco Ranch Highschool</p>
-                            <button onclick="selectLocation('Midtown')">Select</button>
-                        </div>
-                        <div class="location-card">
-                            <h3>Uptown Location</h3>
-                            <p>Cinco Ranch Middle School</p>
-                            <button onclick="selectLocation('Uptown')">Select</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="https://spongefan.fandom.com/wiki/The_Krusty_Krab_Menu">Menu</a></li>
-                    <li><a href="https://catering.chipotle.com/?gclsrc=aw.ds&gad_source=1&%243p=a_google_adwords&%24always_deeplink=false&~ad_set_id=35675494959&~campaign_id=699162699&~channel=g&~keyword=chipotle%20catering&~placement&gclid=Cj0KCQiAu8W6BhC-ARIsACEQoDDxWt9VS4GP0Gj7n_HTrkvCKIh1xKjKr6kpieRbF4VP-CGeVAoYVuYaAmrtEALw_wcB&%24web_only=true&_branch_match_id=1393409044318646176">Catering</a></li>
-                    <li><a href="https://www.google.com/maps/place/Parkway+Gardens+Apartments/@41.7748986,-87.61783,17z/data=!3m1!4b1!4m6!3m5!1s0x880e292aeba9f359:0x95c425cf4ac95d8e!8m2!3d41.7748986!4d-87.6152497!16s%2Fm%2F0127ydh1?entry=ttu&g_ep=EgoyMDI0MTIwMy4wIKXMDSoASAFQAw%3D%3D">Locations</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Connect With Us</h4>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/zuck" class="social-icon">Facebook</a>
-                    <a href="https://www.instagram.com/champagnepapi/?hl=en" class="social-icon">Instagram</a>
-                    <a href="https://x.com/realDonaldTrump" class="social-icon">Twitter</a>
+    <section id="farm" class="py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">Our Organic Farm</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <p class="text-gray-300 text-lg">
+                        Every dish begins in our certified organic farm, where we have over 
+                        50 varieties of vegetables and fruits. Our sustainable 
+                        farming practices preserve soil health and support local biodiversity.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-center text-gray-300">
+                            <span class="text-cyan-400 mr-2">•</span>
+                            Zero-waste farming practices
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <span class="text-cyan-400 mr-2">•</span>
+                            Organic Ingrediants for our Restaurant
+                        </li>
+                        <li class="flex items-center text-gray-300">
+                            <span class="text-cyan-400 mr-2">•</span>
+                            Heritage seed preservation
+                        </li>
+                    </ul>
                 </div>
-            </div>
-            <div class="footer-section">
-                </div>
-                <div class="customer-service">
-                    <h3>Customer Service</h3>
-                    <p>Need help? Contact us:</p>
-                    <div class="contact-info">
-                        <p>📞 (555) 123-4567</p>
-                        <p>✉️ support@akshay.com</p>
-                    </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <img src="https://images.stockcake.com/public/4/a/7/4a7c8783-b89d-418d-8cb3-266f70278661_large/idyllic-farm-landscape-stockcake.jpg" 
+     alt="Farm image 1" 
+     class="rounded-lg card" 
+     style="width: 300px; height: 200px; object-fit: cover;">
+
+<img src="https://media.istockphoto.com/id/965148388/photo/green-ripening-soybean-field-agricultural-landscape.jpg?s=612x612&w=0&k=20&c=cEVP3uj34-5obt-Jf_WI3O9qfP6tVrFaQIv1rBvvpzc=" 
+     alt="Farm image 2" 
+     class="rounded-lg card" 
+     style="width: 300px; height: 200px; object-fit: cover;">
+
+
                 </div>
             </div>
         </div>
+    </section>
+
+
+
+    <footer class="bg-secondary-bg py-12 px-4">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-xl font-bold mb-4">Visit Us</h3>
+                <p class="text-gray-400">23512 Nature Way<br>Cinco Ranch, TX 77494</p>
+                <p class="text-gray-400 mt-2">Open Monday - Saturday<br>11:30 AM - 8:30 PM</p>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Tarka Indian Kitchen. All Rights Reserved To Mr. President.</p>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Connect</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-cyan-400">Instagram</a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400">Facebook</a>
+                    <a href="#" class="text-gray-400 hover:text-cyan-400">Twitter</a>
+                </div>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                <form class="flex gap-2">
+                    <input type="email" placeholder="Enter your email" 
+                           class="bg-gray-800 text-white px-4 py-2 rounded-full flex-grow">
+                    <button class="primary-btn px-6 py-2 rounded-full">Subscribe</button>
+                </form>
+            </div>
         </div>
     </footer>
-
     <script>
-        function openMenuModal() {
-            document.getElementById('menu-modal').style.display = 'block';
-        }
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-        function closeMenuModal() {
-            document.getElementById('menu-modal').style.display = 'none';
-        }
-
-        function openSignInModal() {
-            document.getElementById('signin-modal').style.display = 'block';
-        }
-
-        function closeSignInModal() {
-            document.getElementById('signin-modal').style.display = 'none';
-        }
-
-        function openOrderModal() {
-            document.getElementById('order-modal').style.display = 'block';
-        }
-
-        function closeOrderModal() {
-            document.getElementById('order-modal').style.display = 'none';
-        }
-
-        function addToCart(item) {
-            alert(item + ' added to cart!');
-        }
-
-        function selectLocation(location) {
-            alert(`Selected ${location} location. Redirecting to order page...`);
-            closeOrderModal();
-        }
-
-        
-        window.onclick = function(event) {
-            const menuModal = document.getElementById('menu-modal');
-            const signInModal = document.getElementById('signin-modal');
-            const orderModal = document.getElementById('order-modal');
-            
-            if (event.target == menuModal) menuModal.style.display = 'none';
-            if (event.target == signInModal) signInModal.style.display = 'none';
-            if (event.target == orderModal) orderModal.style.display = 'none';
-        }
+        // Add scroll animation for navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(17, 24, 39, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(17, 24, 39, 0.8)';
+            }
+        });
     </script>
+    <script>
+        // Reservation system
+document.addEventListener('DOMContentLoaded', function() {
+    // Create modal HTML structure
+    const modalHTML = `
+        <div id="reservationModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+            <div class="bg-[#4A3B2C] p-8 rounded-lg shadow-xl max-w-md w-full mx-4">
+                <div id="dateSelection" class="block">
+                    <h2 class="text-2xl font-bold mb-6 text-white">Select a Date</h2>
+                    <div id="calendar" class="grid grid-cols-7 gap-2 mb-4">
+                        <!-- Calendar will be populated here -->
+                    </div>
+                </div>
+                
+                <div id="timeSelection" class="hidden">
+                    <h2 class="text-2xl font-bold mb-6 text-white">Select a Time</h2>
+                    <div id="timeSlots" class="grid grid-cols-3 gap-2">
+                        <!-- Time slots will be populated here -->
+                    </div>
+                </div>
+                
+                <div id="confirmationMessage" class="hidden">
+                    <h2 class="text-2xl font-bold mb-4 text-white">Reservation Confirmed!</h2>
+                    <p id="reservationDetails" class="text-gray-300 mb-6"></p>
+                </div>
+                
+                <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                    ✕
+                </button>
+            </div>
+        </div>
+    `;
+
+    // Add modal to body
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+
+    // Get modal elements
+    const modal = document.getElementById('reservationModal');
+    const dateSelection = document.getElementById('dateSelection');
+    const timeSelection = document.getElementById('timeSelection');
+    const confirmationMessage = document.getElementById('confirmationMessage');
+    const calendar = document.getElementById('calendar');
+    const timeSlots = document.getElementById('timeSlots');
+    const closeModal = document.getElementById('closeModal');
+    const reserveButton = document.getElementById('reserveButton');
+
+    // Generate calendar
+    function generateCalendar() {
+        const today = new Date();
+        const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+        const firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
+
+        // Add day headers
+        const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        days.forEach(day => {
+            calendar.innerHTML += `<div class="text-center text-gray-400 font-bold">${day}</div>`;
+        });
+
+        // Add blank spaces for days before first of month
+        for (let i = 0; i < firstDay; i++) {
+            calendar.innerHTML += '<div></div>';
+        }
+
+        // Add calendar days
+        for (let day = 1; day <= daysInMonth; day++) {
+            const date = new Date(today.getFullYear(), today.getMonth(), day);
+            const isToday = date >= today;
+            calendar.innerHTML += `
+                <button 
+                    class="p-2 rounded ${isToday ? 'hover:bg-[#8B9D77] text-white' : 'text-gray-500 cursor-not-allowed'}"
+                    ${isToday ? 'onclick="selectDate(this)"' : 'disabled'}
+                    data-date="${date.toISOString().split('T')[0]}"
+                >
+                    ${day}
+                </button>
+            `;
+        }
+    }
+
+    // Generate time slots
+    function generateTimeSlots() {
+        const times = [
+            '11:30 AM', '12:00 PM', '12:30 PM', 
+            '1:00 PM', '1:30 PM', '2:00 PM',
+            '5:00 PM', '5:30 PM', '6:00 PM',
+            '6:30 PM', '7:00 PM', '7:30 PM'
+        ];
+
+        timeSlots.innerHTML = times.map(time => `
+            <button 
+                class="p-2 rounded hover:bg-[#8B9D77] text-white"
+                onclick="selectTime('${time}')"
+            >
+                ${time}
+            </button>
+        `).join('');
+    }
+
+    // Event listeners
+    reserveButton.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        generateCalendar();
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        resetModal();
+    });
+
+    // Global functions for date and time selection
+    window.selectDate = function(button) {
+        const selectedDate = button.dataset.date;
+        dateSelection.classList.add('hidden');
+        timeSelection.classList.remove('hidden');
+        generateTimeSlots();
+        window.selectedDate = selectedDate;
+    };
+
+    window.selectTime = function(time) {
+        const formattedDate = new Date(window.selectedDate).toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        timeSelection.classList.add('hidden');
+        confirmationMessage.classList.remove('hidden');
+        document.getElementById('reservationDetails').textContent = 
+            `Your table has been reserved for ${formattedDate} at ${time}`;
+        
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            resetModal();
+        }, 3000);
+    };
+
+    function resetModal() {
+        dateSelection.classList.remove('hidden');
+        timeSelection.classList.add('hidden');
+        confirmationMessage.classList.add('hidden');
+        calendar.innerHTML = '';
+    }
+});
+
+// Add smooth scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = this.getAttribute('href') === '#' ? 'body' : this.getAttribute('href');
+        document.querySelector(target).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', function() {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(74, 59, 44, 0.95)';
+    } else {
+        navbar.style.background = 'rgba(74, 59, 44, 0.8)';
+    }
+});
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll animation for navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(17, 24, 39, 0.95)';
+            } else {
+                navbar.style.background = 'rgba(17, 24, 39, 0.8)';
+            }
+        });
+    </script>
+    
+<button id="backToTop" class="fixed bottom-8 right-8 bg-[#8B9D77] text-white p-4 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-[#C5D1BA]" style="z-index: 100;">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+</button>
+<script>
+    
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTopButton = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.style.opacity = '1';
+        } else {
+            backToTopButton.style.opacity = '0';
+        }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
+<script>
+    // Replace your existing reservation system script with this one
+document.addEventListener('DOMContentLoaded', function() {
+    // Create modal HTML structure
+    const modalHTML = `
+        <div id="reservationModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+            <div class="bg-[#4A3B2C] p-8 rounded-lg shadow-xl max-w-md w-full mx-4">
+                <div id="dateSelection" class="block">
+                    <h2 class="text-2xl font-bold mb-6 text-white">Select a Date</h2>
+                    <div id="calendar" class="grid grid-cols-7 gap-2 mb-4">
+                        <!-- Calendar will be populated here -->
+                    </div>
+                </div>
+                
+                <div id="timeSelection" class="hidden">
+                    <h2 class="text-2xl font-bold mb-6 text-white">Select a Time</h2>
+                    <div id="timeSlots" class="grid grid-cols-3 gap-2">
+                        <!-- Time slots will be populated here -->
+                    </div>
+                </div>
+                
+                <div id="confirmationMessage" class="hidden">
+                    <h2 class="text-2xl font-bold mb-4 text-white">Reservation Confirmed!</h2>
+                    <p id="reservationDetails" class="text-gray-300 mb-6"></p>
+                </div>
+                
+                <button id="closeModal" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                    ✕
+                </button>
+            </div>
+        </div>
+    `;
+
+    // Add modal to body if it doesn't exist
+    if (!document.getElementById('reservationModal')) {
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+    }
+
+    // Get all necessary elements
+    const modal = document.getElementById('reservationModal');
+    const dateSelection = document.getElementById('dateSelection');
+    const timeSelection = document.getElementById('timeSelection');
+    const confirmationMessage = document.getElementById('confirmationMessage');
+    const calendar = document.getElementById('calendar');
+    const timeSlots = document.getElementById('timeSlots');
+    const closeModal = document.getElementById('closeModal');
+    
+    // Get both reservation buttons
+    const reserveButton = document.getElementById('reserveButton');
+    const heroReserveButton = document.getElementById('heroReserveButton');
+
+    // Generate calendar
+    function generateCalendar() {
+        calendar.innerHTML = ''; // Clear existing calendar
+        const today = new Date();
+        const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+        const firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
+
+        // Add day headers
+        const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        days.forEach(day => {
+            calendar.innerHTML += `<div class="text-center text-gray-400 font-bold">${day}</div>`;
+        });
+
+        // Add blank spaces for days before first of month
+        for (let i = 0; i < firstDay; i++) {
+            calendar.innerHTML += '<div></div>';
+        }
+
+        // Add calendar days
+        for (let day = 1; day <= daysInMonth; day++) {
+            const date = new Date(today.getFullYear(), today.getMonth(), day);
+            const isToday = date.toDateString() === today.toDateString();
+            const isPastDay = date < new Date(today.toDateString());
+            const isFutureDay = date > today;
+
+            calendar.innerHTML += `
+                <button 
+                    class="p-2 rounded ${isPastDay ? 'text-gray-500 cursor-not-allowed' : 
+                                        isToday ? 'hover:bg-[#8B9D77] text-white border border-[#8B9D77]' : 
+                                        isFutureDay ? 'hover:bg-[#8B9D77] text-white' : ''}"
+                    ${isPastDay ? 'disabled' : 'onclick="selectDate(this)"'}
+                    data-date="${date.toISOString().split('T')[0]}"
+                >
+                    ${day}
+                </button>
+            `;
+        }
+    }
+
+    // Generate time slots
+    function generateTimeSlots(selectedDate) {
+    const times = [
+        '11:30 AM', '12:00 PM', '12:30 PM', 
+        '1:00 PM', '1:30 PM', '2:00 PM',
+        '5:00 PM', '5:30 PM', '6:00 PM',
+        '6:30 PM', '7:00 PM', '7:30 PM'
+    ];
+
+    // Get current time in CST/CDT
+    const now = new Date().toLocaleString("en-US", {timeZone: "America/Chicago"});
+    const currentTime = new Date(now);
+    const selected = new Date(selectedDate);
+    const isToday = selected.toDateString() === currentTime.toDateString();
+
+    timeSlots.innerHTML = times.map(time => {
+        const [timeStr, period] = time.split(' ');
+        const [hours, minutes] = timeStr.split(':');
+        
+        const timeDate = new Date(selected);
+        let hour = parseInt(hours);
+        if (period === 'PM' && hour !== 12) {
+            hour += 12;
+        } else if (period === 'AM' && hour === 12) {
+            hour = 0;
+        }
+        
+        timeDate.setHours(hour, parseInt(minutes), 0, 0);
+        
+        // Add 15-minute buffer to current time
+        const bufferTime = new Date(currentTime);
+        bufferTime.setMinutes(currentTime.getMinutes() + 15);
+        
+        const isPastTime = isToday && timeDate <= bufferTime;
+
+        return `
+            <button 
+                class="p-2 rounded ${isPastTime ? 'text-gray-500 cursor-not-allowed' : 'hover:bg-[#8B9D77] text-white'}"
+                onclick="${isPastTime ? '' : `selectTime('${time}')`}"
+                ${isPastTime ? 'disabled' : ''}
+                title="${isPastTime ? 'This time has passed' : 'Available'}"
+            >
+                ${time}
+            </button>
+        `;
+    }).join('');
+}
+
+window.selectTime = function(time) {
+    // Get current time in CST/CDT
+    const now = new Date().toLocaleString("en-US", {timeZone: "America/Chicago"});
+    const currentTime = new Date(now);
+    const selectedDate = new Date(window.selectedDate);
+    const isToday = selectedDate.toDateString() === currentTime.toDateString();
+    
+    if (isToday) {
+        const [timeStr, period] = time.split(' ');
+        const [hours, minutes] = timeStr.split(':');
+        const timeDate = new Date(selectedDate);
+        
+        let hour = parseInt(hours);
+        if (period === 'PM' && hour !== 12) {
+            hour += 12;
+        } else if (period === 'AM' && hour === 12) {
+            hour = 0;
+        }
+        
+        timeDate.setHours(hour, parseInt(minutes), 0, 0);
+        
+        // Add 15-minute buffer
+        const bufferTime = new Date(currentTime);
+        bufferTime.setMinutes(currentTime.getMinutes() + 15);
+        
+        if (timeDate <= bufferTime) {
+            alert('Sorry, this time slot is no longer available.');
+            return;
+        }
+    }
+
+    const formattedDate = selectedDate.toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+    
+    timeSelection.classList.add('hidden');
+    confirmationMessage.classList.remove('hidden');
+    document.getElementById('reservationDetails').textContent = 
+        `Your table has been reserved for ${formattedDate} at ${time}`;
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        resetModal();
+    }, 3000);
+};
+
+window.selectTime = function(time) {
+    const now = new Date();
+    const selectedDate = new Date(window.selectedDate);
+    const isToday = selectedDate.toDateString() === now.toDateString();
+    
+    if (isToday) {  // Only validate times for today
+        const [timeStr, period] = time.split(' ');
+        const [hours, minutes] = timeStr.split(':');
+        const timeDate = new Date(selectedDate);
+        
+        let hour = parseInt(hours);
+        if (period === 'PM' && hour !== 12) {
+            hour += 12;
+        } else if (period === 'AM' && hour === 12) {
+            hour = 0;
+        }
+        
+        timeDate.setHours(hour, parseInt(minutes), 0, 0);
+        
+        const currentTime = new Date();
+        currentTime.setMinutes(currentTime.getMinutes() + 15);
+        
+        if (timeDate <= currentTime) {
+            alert('Sorry, this time slot is no longer available.');
+            return;
+        }
+    }
+
+    const formattedDate = selectedDate.toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+    
+    timeSelection.classList.add('hidden');
+    confirmationMessage.classList.remove('hidden');
+    document.getElementById('reservationDetails').textContent = 
+        `Your table has been reserved for ${formattedDate} at ${time}`;
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        resetModal();
+    }, 3000);
+};
+
+window.selectTime = function(time) {
+    const now = new Date();
+    const selectedDate = new Date(window.selectedDate);
+    const isToday = selectedDate.toDateString() === now.toDateString();
+    
+    if (!isToday) {  // Changed condition: validate for future dates
+        const [timeStr, period] = time.split(' ');
+        const [hours, minutes] = timeStr.split(':');
+        const timeDate = new Date(selectedDate);
+        
+        let hour = parseInt(hours);
+        if (period === 'PM' && hour !== 12) {
+            hour += 12;
+        } else if (period === 'AM' && hour === 12) {
+            hour = 0;
+        }
+        
+        timeDate.setHours(hour, parseInt(minutes), 0, 0);
+        
+        const currentTime = new Date();
+        currentTime.setMinutes(currentTime.getMinutes() + 15);
+        
+        if (timeDate <= currentTime) {
+            alert('Sorry, this time slot is no longer available.');
+            return;
+        }
+    }
+
+    const formattedDate = selectedDate.toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+    
+    timeSelection.classList.add('hidden');
+    confirmationMessage.classList.remove('hidden');
+    document.getElementById('reservationDetails').textContent = 
+        `Your table has been reserved for ${formattedDate} at ${time}`;
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        resetModal();
+    }, 3000);
+};
+
+window.selectTime = function(time) {
+    const now = new Date();
+    const selectedDate = new Date(window.selectedDate);
+    const isToday = selectedDate.toDateString() === now.toDateString();
+    
+    if (isToday) {
+        const [timeStr, period] = time.split(' ');
+        const [hours, minutes] = timeStr.split(':');
+        const timeDate = new Date(selectedDate);
+        
+        let hour = parseInt(hours);
+        if (period === 'PM' && hour !== 12) {
+            hour += 12;
+        } else if (period === 'AM' && hour === 12) {
+            hour = 0;
+        }
+        
+        timeDate.setHours(hour, parseInt(minutes), 0, 0);
+        
+        const currentTime = new Date();
+        currentTime.setMinutes(currentTime.getMinutes() + 15);
+        
+        if (timeDate <= currentTime) {
+            alert('Sorry, this time slot is no longer available.');
+            return;
+        }
+    }
+
+    const formattedDate = selectedDate.toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+    
+    timeSelection.classList.add('hidden');
+    confirmationMessage.classList.remove('hidden');
+    document.getElementById('reservationDetails').textContent = 
+        `Your table has been reserved for ${formattedDate} at ${time}`;
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        resetModal();
+    }, 3000);
+};
+
+    // Add click handlers to both buttons
+    [reserveButton, heroReserveButton].forEach(button => {
+        if (button) {
+            button.addEventListener('click', () => {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                generateCalendar();
+            });
+        }
+    });
+
+    // Close modal handler
+    closeModal.addEventListener('click', () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        resetModal();
+    });
+
+    // Reset modal function
+    function resetModal() {
+        dateSelection.classList.remove('hidden');
+        timeSelection.classList.add('hidden');
+        confirmationMessage.classList.add('hidden');
+        calendar.innerHTML = '';
+    }
+
+    // Global functions for date and time selection
+    window.selectDate = function(button) {
+        const selectedDate = button.dataset.date;
+        dateSelection.classList.add('hidden');
+        timeSelection.classList.remove('hidden');
+        generateTimeSlots(selectedDate);
+        window.selectedDate = selectedDate;
+    };
+
+    window.selectTime = function(time) {
+    const now = new Date();
+    const selectedDate = new Date(window.selectedDate);
+    const isToday = selectedDate.toDateString() === now.toDateString();
+    
+    if (isToday) {  // Only validate time if it's today
+        const [timeStr, period] = time.split(' ');
+        const [hours, minutes] = timeStr.split(':');
+        const timeDate = new Date(selectedDate);
+        
+        let hour = parseInt(hours);
+        if (period === 'PM' && hour !== 12) {
+            hour += 12;
+        } else if (period === 'AM' && hour === 12) {
+            hour = 0;
+        }
+        
+        timeDate.setHours(hour, parseInt(minutes), 0, 0);
+        
+        // Add 15 minutes buffer to current time
+        now.setMinutes(now.getMinutes() + 15);
+        
+        if (timeDate <= now) {
+            alert('Sorry, this time slot is no longer available.');
+            return;
+        }
+    }
+    // If it's not today, skip all time validation and proceed with the reservation
+
+    const formattedDate = new Date(window.selectedDate).toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+    
+    timeSelection.classList.add('hidden');
+    confirmationMessage.classList.remove('hidden');
+    document.getElementById('reservationDetails').textContent = 
+        `Your table has been reserved for ${formattedDate} at ${time}`;
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        resetModal();
+    }, 3000);
+};
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    let currentSlide = 0;
+    let slideInterval;
+    const intervalTime = 3000; // 3 seconds
+
+    // Function to show a specific slide
+    function showSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        slides[index].classList.add('active');
+    }
+
+    // Function to move to next slide
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+
+    // Start the slideshow
+    function startSlideshow() {
+        showSlide(currentSlide); // Show first slide immediately
+        slideInterval = setInterval(nextSlide, intervalTime);
+    }
+
+    // Pause on hover
+    const testimonialContainer = document.getElementById('testimonials-container');
+    testimonialContainer.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+    });
+
+    testimonialContainer.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(nextSlide, intervalTime);
+    });
+
+    // Start the slideshow when the page loads
+    startSlideshow();
+});
+</script>
+<script>
+    // Add this to your existing script section
+function scrollToTop(event) {
+    event.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+</script>
+<script>
+    
+</script>
 </body>
+
 </html>
