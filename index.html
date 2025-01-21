@@ -359,8 +359,9 @@
         /* Enhanced testimonial styles */
         .testimonial-wrapper {
             position: relative;
-            height: 200px; /* Adjust based on your content height */
+            min-height: 200px; /* Changed from fixed height to min-height */
             width: 100%;
+            margin-bottom: 2rem; /* Added margin for dots */
 }
 
         .testimonial-slide {
@@ -370,27 +371,68 @@
             width: 100%;
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
+            height: auto; /* Allow height to adjust to content */
 }
 
         .testimonial-slide.active {
             opacity: 1;
+            position: relative; /* Change to relative when active */
 }
         .testimonial-card {
             background: rgba(74, 59, 44, 0.6);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(245, 245, 245, 0.2);
             border-radius: 0.5rem;
-            padding: 2rem;
+            padding: 1.5rem; /* Reduced padding on mobile */
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+            margin: 0 auto;
+            max-width: 100%;
+            overflow-y: auto; /* Allow scrolling if needed */
+            height: auto; /* Allow height to adjust */
+        }
+        .testimonial-card p.text-lg {
+            font-size: 1rem; /* Smaller base size for mobile */
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
 
         .testimonial-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-color);
             background: rgba(74, 59, 44, 0.8);
             box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}   
+        }   
+        @media (min-width: 640px) {
+            .testimonial-card {
+                padding: 2rem;
+            }
+            
+            .testimonial-card p.text-lg {
+                font-size: 1.125rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .testimonial-wrapper {
+                min-height: 250px;
+            }
+        }
+
+        /* Container responsiveness */
+        #testimonials-container {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Navigation dots container */
+        #testimonial-dots {
+            position: relative;
+            z-index: 10;
+            padding: 1rem 0;
+        }
 
         /* Footer enhancement */
         footer {
@@ -1454,5 +1496,4 @@ function scrollToTop(event) {
     
 </script>
 </body>
-
 </html>
