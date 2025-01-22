@@ -672,71 +672,7 @@
             opacity: 0.7;
             font-style: italic;
         }
-        /* Mobile Chat Widget Styles */
-@media (max-width: 768px) {
-    .chat-widget {
-        bottom: 1rem;
-        left: 1rem;
-        right: 1rem;
-        z-index: 1000;
-    }
-
-    .chat-button {
-        width: 50px;
-        height: 50px;
-    }
-
-    .chat-window {
-        position: fixed;
-        bottom: 80px;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 80vh;
-        margin: 0 1rem;
-        border-radius: 1rem;
-    }
-
-    .chat-window.active {
-        transform: scale(1);
-    }
-
-    .chat-messages {
-        height: calc(100% - 120px);
-    }
-
-    .message {
-        max-width: 85%;
-    }
-}
-
-        /* Improve Mobile Menu Navigation */
-        .mobile-menu {
-            display: none;
-            padding-top: 4rem;
-        }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        .mobile-menu a {
-            display: block;
-            padding: 1rem 2rem;
-            color: var(--text-primary);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu a:hover {
-            background: rgba(139, 157, 119, 0.1);
-        }
-
-        #mobileReserveButton {
-            margin: 1rem 2rem;
-            width: calc(100% - 4rem);
-        }
+        
     
     </style>
 </head>
@@ -765,15 +701,14 @@
                 <button id="reserveButton" class="primary-btn px-6 py-2 rounded-full font-medium">Reserve Now</button>
             </div>
     
-           
             <!-- Mobile Menu Panel -->
             <div class="mobile-menu md:hidden">
-                <a href="#" onclick="scrollToTop(event)">Home</a>
-                <a href="#menu">Menu</a>
-                <a href="#farm">Our Farm</a>
-                <a href="#testimonials">Reviews</a>
-                <a href="references.html" onclick="window.location.href='references.html'">References</a>
-                <button id="mobileReserveButton" class="primary-btn px-6 py-2 rounded-full font-medium">Reserve Now</button>
+                <a onclick="scrollToTop(event)" class="text-white hover:text-cyan-400 transition-colors cursor-pointer">Home</a>
+                <a href="#menu" class="text-white hover:text-cyan-400 transition-colors">Menu</a>
+                <a href="#farm" class="text-white hover:text-cyan-400 transition-colors">Our Farm</a>
+                <a href="#testimonials" class="text-white hover:text-cyan-400 transition-colors">Reviews</a>
+                <a href="references.html" class="text-white hover:text-cyan-400 transition-colors">References</a>
+                <button id="mobileReserveButton" class="primary-btn px-6 py-2 rounded-full font-medium w-full mt-4">Reserve Now</button>
             </div>
         </div>
     </nav>
@@ -815,8 +750,8 @@
                 <button id="heroReserveButton" class="primary-btn px-6 py-2 rounded-full font-medium">
                     Reserve Now
                 </button>
-                <button class="secondary-btn px-8 py-3 rounded-full text-lg font-medium">
-                    Explore Our Farm
+                <button onclick="window.location.href='farm.html'" class="secondary-btn px-8 py-3 rounded-full text-lg font-medium">
+                    Explore Our Process
                 </button>
             </div>
             <div class="flex justify-center mt-12">
@@ -1826,7 +1761,7 @@ function scrollToTop(event) {
 }
 </script>
 <script>
-    
+    // Add this to your existing JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuButton = document.querySelector('.mobile-menu-button');
     const mobileMenu = document.querySelector('.mobile-menu');
@@ -1922,7 +1857,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const response = await fetch('https://api.openai.com/v1/chat/completions', {
                 method: 'POST',
                 headers: {
-                    'Authorization': 'Bearer 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',
+                    'Authorization': 'Bearer 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',
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
@@ -1997,7 +1932,6 @@ When answering questions, be friendly and conversational while providing specifi
         chatMessages.appendChild(messageDiv);
         chatMessages.scrollTop = chatMessages.scrollHeight;
     };
-    
 
     // Event listeners for sending messages
     sendMessage.addEventListener('click', sendMessageHandler);
@@ -2006,41 +1940,6 @@ When answering questions, be friendly and conversational while providing specifi
             sendMessageHandler();
         }
     });
-});
-</script>
-<script>
-    // Mobile Menu Toggle
-const mobileMenuButton = document.querySelector('.mobile-menu-button');
-const mobileMenu = document.querySelector('.mobile-menu');
-
-mobileMenuButton.addEventListener('click', () => {
-    mobileMenu.classList.toggle('active');
-});
-
-// Close mobile menu when a link is clicked
-const mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
-mobileMenuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-    });
-});
-
-// Chat Widget Mobile Handling
-const toggleChat = document.getElementById('toggleChat');
-const chatWindow = document.getElementById('chatWindow');
-const closeChat = document.getElementById('closeChat');
-
-toggleChat.addEventListener('click', () => {
-    chatWindow.classList.toggle('active');
-    // hide the chat button when the window is open
-    if (window.innerWidth <= 768) {
-        toggleChat.style.display = chatWindow.classList.contains('active') ? 'none' : 'block';
-    }
-});
-
-closeChat.addEventListener('click', () => {
-    chatWindow.classList.remove('active');
-    toggleChat.style.display = 'block';
 });
 </script>
 </body>
