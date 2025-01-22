@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden of Eden - Our Farm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        :root {
+            --primary-bg: #2C1810;
+            --secondary-bg: #4A3B2C;
+            --accent-color: #8B9D77;
+            --accent-color-light: #C5D1BA;
+            --text-primary: #F5F5F5;
+            --text-secondary: #E0E0E0;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        section {
+            position: relative;
+            background: linear-gradient(180deg, 
+                var(--primary-bg) 0%,
+                var(--secondary-bg) 50%,
+                var(--primary-bg) 100%
+            );
+            transition: background 0.5s ease;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(to bottom, 
+                transparent 0%,
+                var(--primary-bg) 100%
+            );
+        }
+
+        section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(to top, 
+                transparent 0%,
+                var(--primary-bg) 100%
+            );
+            z-index: 1;
+        }
+
+        .navbar {
+            background: rgba(10, 9, 7, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .navbar .primary-btn {
+            padding: 0.5rem 1.25rem;  
+            font-size: 0.875rem;      
+            transform: translateY(-1px); 
+            margin-left: 1rem;       
+            line-height: 1.25;        
+        }
+
+        .navbar a {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover:after {
+            width: 100%;
+        }
+
+        .navbar.scrolled {
+            background: rgba(74, 59, 44, 0.95);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Additional styles for farm page specific elements */
+        .step-number {
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-bg);
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .timeline-container {
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 29px;
+            top: 60px;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-color);
+            opacity: 0.5;
+            z-index: 1;
+        }
+
+        .farm-image {
+            border: 2px solid var(--accent-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            height: 500px;
+            width: 100%;
+        }
+
+        .farm-image:hover {
+            transform: scale(1.02);
+        }
+
+        .content-section {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        .text-content {
+            padding-left: 3rem;
+        }
+
+        .primary-btn {
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
+            color: var(--primary-bg);
+            transition: transform 0.3s ease;
+        }
+
+        .primary-btn:hover {
+            transform: scale(1.05);
+        }
+
+        main {
+            background: linear-gradient(180deg, 
+                var(--primary-bg) 0%,
+                var(--secondary-bg) 50%,
+                var(--primary-bg) 100%
+            );
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <nav class="navbar fixed w-full top-0 z-50 px-4 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-bold gradient-text">Garden of Eden</a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-white">Home</a>
+                <a href="index.html#menu" class="text-white">Menu</a>
+                <a href="farm.html" class="text-white">Our Farm</a>
+                <a href="index.html#testimonials" class="text-white">Reviews</a>
+                <a href="references.html" class="text-white">References</a>
+                <button onclick="window.location.href='index.html#reservations'" class="primary-btn px-6 py-2 rounded-full font-medium">Reserve Now</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 px-4 pb-20">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-4xl font-bold mb-20 text-center">
+                <span class="gradient-text">Our Sustainable</span> Farm
+            </h1>
+
+            <div class="space-y-24">
+                <!-- Step 1 -->
+                <div class="content-section grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <div>
+                        <img src="https://www.gardentech.com/-/media/project/oneweb/gardentech/images/blog/starting-seeds-right-in-your-garden/starting_seeds_right_in_your_garden_header.jpg" alt="Organic Seeds" class="farm-image object-cover"/>
+                    </div>
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+                        <div class="step-number">01</div>
+                        <div class="text-content space-y-4">
+                            <h2 class="text-2xl font-bold gradient-text">Seed Selection & Planning</h2>
+                            <p class="text-gray-300 text-base">We carefully select organic, heirloom seeds and plan our crop rotation to maintain soil health. Our seasonal planning ensures we grow the perfect vegetables for each season while preserving biodiversity.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="content-section grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <div>
+                        <img src=" https://twin-cities.umn.edu/sites/twin-cities.umn.edu/files/media/Field-of-corn.jpg" alt="Sustainable Farming" class="farm-image object-cover"/>
+                    </div>
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+                        <div class="step-number">02</div>
+                        <div class="text-content space-y-4">
+                            <h2 class="text-2xl font-bold gradient-text">Sustainable Growing Practices</h2>
+                            <p class="text-gray-300 text-base">Our farm uses natural composting, rainwater harvesting, and companion planting techniques. We maintain soil health through organic methods and protect beneficial insects that help our garden thrive.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="content-section grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <div>
+                        <img src="https://st.depositphotos.com/9913494/53193/i/450/depositphotos_531938294-stock-photo-harvesting-vegetable-garden-farmer-freshly.jpg" alt="Harvest Process" class="farm-image object-cover"/>
+                    </div>
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+                        <div class="step-number">03</div>
+                        <div class="text-content space-y-4">
+                            <h2 class="text-2xl font-bold gradient-text">Mindful Harvesting</h2>
+                            <p class="text-gray-300 text-base">We harvest our vegetables at peak ripeness, using traditional hand-picking methods to ensure the highest quality. Each vegetable is carefully inspected and handled with care to maintain its nutritional value.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="content-section grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <div>
+                        <img src="https://file-cdn.mercyforanimals.org/mercy4animals.wpengine.com/sites/445/2018/11/Vegan-Chefs.png" alt="Farm to Table" class="farm-image object-cover"/>
+                    </div>
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+                        <div class="step-number">04</div>
+                        <div class="text-content space-y-4">
+                            <h2 class="text-2xl font-bold gradient-text">Farm to Table Journey</h2>
+                            <p class="text-gray-300 text-base">Our harvested vegetables go directly to our restaurant kitchen, where our chefs transform them into delicious vegetarian dishes. This direct farm-to-table approach ensures the freshest, most flavorful dining experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-8 px-4 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-gray-400">© 2024 Garden of Eden. All rights reserved.</p>
+            <a href="index.html" class="text-white hover:text-[var(--accent-color)] mt-2 inline-block">Back to Home</a>
+        </div>
+    </footer>
+
+    <script>
+        // Add scroll behavior for navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
