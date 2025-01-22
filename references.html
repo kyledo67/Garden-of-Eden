@@ -21,9 +21,79 @@
             font-family: 'Space Grotesk', sans-serif;
         }
 
+        section {
+            position: relative;
+            background: linear-gradient(180deg, 
+                var(--primary-bg) 0%,
+                var(--secondary-bg) 50%,
+                var(--primary-bg) 100%
+            );
+            transition: background 0.5s ease;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(to bottom, 
+                transparent 0%,
+                var(--primary-bg) 100%
+            );
+        }
+
+        section::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: linear-gradient(to top, 
+                transparent 0%,
+                var(--primary-bg) 100%
+            );
+            z-index: 1;
+        }
+
         .navbar {
             background: rgba(10, 9, 7, 0.8);
             backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .navbar .primary-btn {
+            padding: 0.5rem 1.25rem;  
+            font-size: 0.875rem;      
+            transform: translateY(-1px); 
+            margin-left: 1rem;       
+            line-height: 1.25;        
+        }
+
+        .navbar a {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+
+        .navbar a:hover:after {
+            width: 100%;
+        }
+
+        .navbar.scrolled {
+            background: rgba(74, 59, 44, 0.95);
         }
 
         .gradient-text {
@@ -32,6 +102,7 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
 
         .reference-card {
             background: rgba(74, 59, 44, 0.6);
