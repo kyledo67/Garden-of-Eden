@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden of Eden - References</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        :root {
+            --primary-bg: #2C1810;
+            --secondary-bg: #4A3B2C;
+            --accent-color: #8B9D77;
+            --accent-color-light: #C5D1BA;
+            --text-primary: #F5F5F5;
+            --text-secondary: #E0E0E0;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .navbar {
+            background: rgba(10, 9, 7, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .reference-card {
+            background: rgba(74, 59, 44, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(245, 245, 245, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
+
+        .reference-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            background: rgba(74, 59, 44, 0.8);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .primary-btn {
+            background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
+            color: var(--primary-bg);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-b from-[#2C1810] to-[#4A3B2C]">
+    <nav class="navbar fixed w-full top-0 z-50 px-4 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-bold gradient-text">Garden of Eden</a>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-white hover:text-cyan-400 transition-colors">Home</a>
+                <a href="index.html#menu" class="text-white hover:text-cyan-400 transition-colors">Menu</a>
+                <a href="index.html#farm" class="text-white hover:text-cyan-400 transition-colors">Our Farm</a>
+                <a href="index.html#testimonials" class="text-white hover:text-cyan-400 transition-colors">Reviews</a>
+                <a href="references.html" class="text-white hover:text-cyan-400 transition-colors">References</a>
+                <button onclick="window.location.href='index.html#reservations'" class="primary-btn px-6 py-2 rounded-full font-medium">Reserve Now</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 px-4 pb-20">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-4xl font-bold mb-12 text-center">
+                <span class="gradient-text">References</span> & Attribution
+            </h1>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="reference-card p-6 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-4 gradient-text">Images</h2>
+                    <ul class="space-y-4">
+                        <li>
+                            <p class="text-gray-300 mb-2">Farm Landscape Image 1:</p>
+                            <a href="https://images.stockcake.com/public/4/a/7/4a7c8783-b89d-418d-8cb3-266f70278661_large/idyllic-farm-landscape-stockcake.jpg" 
+                               class="text-cyan-400 hover:underline break-all">
+                               StockCake - Idyllic Farm Landscape
+                            </a>
+                        </li>
+                        <li>
+                            <p class="text-gray-300 mb-2">Farm Landscape Image 2:</p>
+                            <a href="https://media.istockphoto.com/id/965148388/photo/green-ripening-soybean-field-agricultural-landscape.jpg?s=612x612&w=0&k=20&c=cEVP3uj34-5obt-Jf_WI3O9qfP6tVrFaQIv1rBvvpzc=" 
+                               class="text-cyan-400 hover:underline break-all">
+                               iStock - Agricultural Landscape
+                            </a>
+                        </li>
+                        <li>
+                            <p class="text-gray-300 mb-2">Step1 Process Image:</p>
+                            <a href="https://www.gardentech.com/-/media/project/oneweb/gardentech/images/blog/starting-seeds-right-in-your-garden/starting_seeds_right_in_your_garden_header.jpg" 
+                               class="text-cyan-400 hover:underline break-all">
+                               gardentech - Planting Seed by Hand
+                            </a>
+                        </li>
+                        <li>
+                            <p class="text-gray-300 mb-2">Step2 Process Image:</p>
+                            <a href="https://twin-cities.umn.edu/sites/twin-cities.umn.edu/files/media/Field-of-corn.jpg" 
+                               class="text-cyan-400 hover:underline break-all">
+                               twin-cities - Field-of-corn
+                            </a>
+                        </li>
+                        <li>
+                            <p class="text-gray-300 mb-2">Step3 Process Image:</p>
+                            <a href="https://st.depositphotos.com/9913494/53193/i/450/depositphotos_531938294-stock-photo-harvesting-vegetable-garden-farmer-freshly.jpg" 
+                               class="text-cyan-400 hover:underline break-all">
+                               st.depositphotos - Harvesting Vegetable Garden
+                            </a>
+                        </li>
+                        <li>
+                            <p class="text-gray-300 mb-2">Step3 Process Image:</p>
+                            <a href="https://file-cdn.mercyforanimals.org/mercy4animals.wpengine.com/sites/445/2018/11/Vegan-Chefs.png" 
+                               class="text-cyan-400 hover:underline break-all">
+                               mercyforanimals - Vegan Chef Cooking
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="reference-card p-6 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-4 gradient-text">Design Resources</h2>
+                    <ul class="space-y-4">
+                        <li>
+                            <p class="text-gray-300 mb-2">CSS Framework:</p>
+                            <a href="https://tailwindcss.com/" 
+                               class="text-cyan-400 hover:underline">
+                               Tailwind CSS v2.2.19
+                            </a>
+                        </li>
+                        <li>
+                            <p class="text-gray-300 mb-2">Font:</p>
+                            <a href="https://fonts.google.com/specimen/Space+Grotesk" 
+                               class="text-cyan-400 hover:underline">
+                               Space Grotesk - Google Fonts
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="reference-card p-6 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-4 gradient-text">CSS Features</h2>
+                    <ul class="list-disc pl-6 text-gray-300 space-y-2">
+                        <li>CSS Custom Properties (Variables) for theming</li>
+                        <li>CSS Gradients for text and backgrounds</li>
+                        <li>CSS Backdrop Filter for glass effects</li>
+                        <li>CSS Animations for floating leaves and plant animations</li>
+                    </ul>
+                </div>
+
+                <div class="reference-card p-6 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-4 gradient-text">Research Resources</h2>
+                    <ul class="space-y-4">
+                        <li>
+                            <p class="text-gray-300 mb-2">HTML Documentation guide used:</p>
+                            <a href="https://www.geeksforgeeks.org/html-complete-guide/" 
+                               class="text-cyan-400 hover:underline">
+                               HTML Tutorial - Geeks4Geeks
+                            </a>
+                        </li>
+                        <li>
+                            <p class="text-gray-300 mb-2">CSS Tutorial and syntax guide used:</p>
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference" 
+                               class="text-cyan-400 hover:underline">
+                                CSS - Mozilla Developer Network
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="reference-card p-6 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-4 gradient-text">Color Palette</h2>
+                    <ul class="space-y-4">
+                        <li>
+                            <p class="text-gray-300">Primary Background: #2C1810</p>
+                            <p class="text-gray-300">Secondary Background: #4A3B2C</p>
+                            <p class="text-gray-300">Accent Color: #8B9D77</p>
+                            <p class="text-gray-300">Accent Color Light: #C5D1BA</p>
+                            <p class="text-gray-300">Text Primary: #F5F5F5</p>
+                            <p class="text-gray-300">Text Secondary: #E0E0E0</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="reference-card p-6 rounded-lg">
+                    <h2 class="text-2xl font-bold mb-4 gradient-text">Additional Credits</h2>
+                    <p class="text-gray-300">
+                        All menu items, descriptions, and testimonials are fictional and created for demonstration purposes only. 
+                        Any resemblance to actual restaurants or persons is purely coincidental.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-8 px-4 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-gray-400">© 2024 Garden of Eden. All rights reserved.</p>
+            <a href="index.html" class="text-cyan-400 hover:underline mt-2 inline-block">Back to Home</a>
+        </div>
+    </footer>
+</body>
+</html>
