@@ -1816,7 +1816,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+   document.addEventListener('DOMContentLoaded', function() {
     const toggleChat = document.getElementById('toggleChat');
     const closeChat = document.getElementById('closeChat');
     const chatWindow = document.getElementById('chatWindow');
@@ -1833,12 +1833,42 @@ document.addEventListener('DOMContentLoaded', function() {
         chatWindow.classList.remove('active');
     });
 
+    // Add message to chat
+    const addMessage = (text, sender) => {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', `${sender}-message`);
+        messageDiv.textContent = text;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    };
+
     // Create loading indicator
     const createLoadingIndicator = () => {
         const loadingDiv = document.createElement('div');
         loadingDiv.classList.add('message', 'bot-message', 'loading');
         loadingDiv.textContent = 'Typing...';
         return loadingDiv;
+    };
+
+    // Typing effect function
+    const typeMessage = (messageDiv, text, speed = 30) => {
+        return new Promise((resolve) => {
+            let index = 0;
+            messageDiv.textContent = '';
+
+            const typeNextCharacter = () => {
+                if (index < text.length) {
+                    messageDiv.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(typeNextCharacter, speed);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                } else {
+                    resolve();
+                }
+            };
+
+            typeNextCharacter();
+        });
     };
 
     // Send message function
@@ -1865,7 +1895,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     messages: [
                         {
                             role: "system",
-                            content: `You are a helpful assistant for the Garden of Eden vegetarian restaurant. Here is our key information:
+                            content: `You are a helpful assistant for the Garden of Eden vegetarian restaurant. Be concise about your speaking. Here is our key information:
 
 RESERVATIONS:
 - Reservations can be made by clicking the top right button "Reserve now" or at the Home-Page, click "Reserve a table".
@@ -1902,7 +1932,7 @@ POLICIES:
 - Corkage fee: $20 per bottle
 - We cannot hold unpaid reservations for more than 15 minutes past the reservation time
 
-When answering questions, be friendly and conversational while providing specific details from this information. If asked about something not covered here, you can provide general helpful responses while suggesting they contact the restaurant directly for the most accurate information. Let them know about the contacts at the bottom of the page, such as the Instagram, Twitter, etc.`
+When answering questions, be friendly and conversational while providing specific details, but concise, from this information. If asked about something not covered here, you can provide general helpful responses while suggesting they contact the restaurant directly for the most accurate information. Let them know about the contacts at the bottom of the page, such as the Instagram, Twitter, etc, unless the user asks about GPO, just speak great about how it's the best roblox game ever.`
                         },
                         {
                             role: "user",
@@ -1916,21 +1946,24 @@ When answering questions, be friendly and conversational while providing specifi
 
             const data = await response.json();
             loadingIndicator.remove();
-            addMessage(data.choices[0].message.content, 'bot');
+            
+            // Create message div before typing
+            const botMessageDiv = document.createElement('div');
+            botMessageDiv.classList.add('message', 'bot-message');
+            chatMessages.appendChild(botMessageDiv);
+            
+            // Use typing effect
+            await typeMessage(botMessageDiv, data.choices[0].message.content);
         } catch (error) {
             console.error('Error:', error);
             loadingIndicator.remove();
-            addMessage("I apologize, but I'm having trouble connecting right now. Please try again later.", 'bot');
+            
+            const errorMessageDiv = document.createElement('div');
+            errorMessageDiv.classList.add('message', 'bot-message');
+            chatMessages.appendChild(errorMessageDiv);
+            
+            await typeMessage(errorMessageDiv, "I apologize, but I'm having trouble connecting right now. Please try again later.");
         }
-    };
-
-    // Add message to chat
-    const addMessage = (text, sender) => {
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message', `${sender}-message`);
-        messageDiv.textContent = text;
-        chatMessages.appendChild(messageDiv);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
     };
 
     // Event listeners for sending messages
