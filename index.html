@@ -679,34 +679,30 @@
 <body class="min-h-screen">
     <nav class="navbar fixed w-full top-0 z-50 px-4 py-4">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Logo -->
             <div class="flex items-center">
                 <a href="#" class="text-2xl font-bold gradient-text">Garden of Eden</a>
             </div>
     
-            <!-- Mobile Menu Button -->
             <button class="mobile-menu-button md:hidden">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
     
-            <!-- Desktop Navigation -->
             <div class="hidden md:flex space-x-6">
                 <a onclick="scrollToTop(event)" class="text-white hover:text-cyan-400 transition-colors cursor-pointer">Home</a>
                 <a href="#menu" class="text-white hover:text-cyan-400 transition-colors">Menu</a>
-                <a href="#farm" class="text-white hover:text-cyan-400 transition-colors">Our Farm</a>
                 <a href="#testimonials" class="text-white hover:text-cyan-400 transition-colors">Reviews</a>
+                <a href="#farm" class="text-white hover:text-cyan-400 transition-colors">Our Farm</a>
                 <a href="references.html" class="text-white hover:text-cyan-400 transition-colors">References</a>
                 <button id="reserveButton" class="primary-btn px-6 py-2 rounded-full font-medium">Reserve Now</button>
             </div>
     
-            <!-- Mobile Menu Panel -->
             <div class="mobile-menu md:hidden">
                 <a onclick="scrollToTop(event)" class="text-white hover:text-cyan-400 transition-colors cursor-pointer">Home</a>
                 <a href="#menu" class="text-white hover:text-cyan-400 transition-colors">Menu</a>
-                <a href="#farm" class="text-white hover:text-cyan-400 transition-colors">Our Farm</a>
                 <a href="#testimonials" class="text-white hover:text-cyan-400 transition-colors">Reviews</a>
+                <a href="#farm" class="text-white hover:text-cyan-400 transition-colors">Our Farm</a>
                 <a href="references.html" class="text-white hover:text-cyan-400 transition-colors">References</a>
                 <button id="mobileReserveButton" class="primary-btn px-6 py-2 rounded-full font-medium w-full mt-4">Reserve Now</button>
             </div>
@@ -727,9 +723,7 @@
         </svg>
         <svg class="floating-leaf floating-leaf-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 2C10.87 2 8.16 2.69 6.25 3.37C4.09 4.13 2.5 6.2 2.5 8.5C2.5 10.8 4.09 12.87 6.25 13.63C8.16 14.31 10.87 15 12 15C13.13 15 15.84 14.31 17.75 13.63C19.91 12.87 21.5 10.8 21.5 8.5C21.5 6.2 19.91 4.13 17.75 3.37C15.84 2.69 13.13 2 12 2Z" />
-            <!-- Main vein (w.i.p dont know if this shit even works)-->
             <path class="leaf-vein" d="M12 3.5V13.5" stroke-width="0.3" />
-            <!-- Secondary veins -->
             <path class="leaf-vein" d="M12 5L9 7.5" stroke-width="0.2" />
             <path class="leaf-vein" d="M12 5L15 7.5" stroke-width="0.2" />
             <path class="leaf-vein" d="M12 7L8.5 9.5" stroke-width="0.2" />
@@ -906,7 +900,6 @@
             
             <div class="relative" id="testimonials-container">
                 <div class="testimonial-wrapper">
-                    <!-- Slides will be absolutely positioned hopefully -->
                     <div class="testimonial-slide">
                         <div class="testimonial-card">
                             <p class="text-lg text-gray-300 mb-4">"The farm-to-table experience at Garden of Eden is unmatched. The fresh vegetables and innovative dishes changed my perspective on vegetarian cuisine."</p>
@@ -1026,7 +1019,7 @@
             </div>
         </div>
     </footer>
-    <!-- Chat Widget -->
+    
 <div class="chat-widget">
     <button class="chat-button" id="toggleChat">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1063,7 +1056,7 @@
     </div>
 </div>
     <script>
-        //smooth scrolling
+       
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1073,7 +1066,6 @@
             });
         });
 
-        // scroll animation for navbar
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
@@ -1084,16 +1076,15 @@
         });
     </script>
     <script>
-        // Reservations
+        
 document.addEventListener('DOMContentLoaded', function() {
-    //modal HTML structure
+    
     const modalHTML = `
         <div id="reservationModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
             <div class="bg-[#4A3B2C] p-8 rounded-lg shadow-xl max-w-md w-full mx-4">
                 <div id="dateSelection" class="block">
                     <h2 class="text-2xl font-bold mb-6 text-white">Select a Date</h2>
                     <div id="calendar" class="grid grid-cols-7 gap-2 mb-4">
-                        <!-- Calendar will be populated here -->
                     </div>
                 </div>
                 
@@ -1116,10 +1107,9 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     `;
 
-    // Add modal to body
+    
     document.body.insertAdjacentHTML('beforeend', modalHTML);
 
-    // Get modal elements
     const modal = document.getElementById('reservationModal');
     const dateSelection = document.getElementById('dateSelection');
     const timeSelection = document.getElementById('timeSelection');
@@ -1129,7 +1119,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeModal = document.getElementById('closeModal');
     const reserveButton = document.getElementById('reserveButton');
 
-    //cal
     function generateCalendar() {
         const today = new Date();
         const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
@@ -1162,7 +1151,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // time slot
+    
     function generateTimeSlots() {
         const times = [
             '11:30 AM', '12:00 PM', '12:30 PM', 
@@ -1181,7 +1170,7 @@ document.addEventListener('DOMContentLoaded', function() {
         `).join('');
     }
 
-    // Event listeners
+ 
     reserveButton.addEventListener('click', () => {
         modal.classList.remove('hidden');
         modal.classList.add('flex');
@@ -1194,7 +1183,7 @@ document.addEventListener('DOMContentLoaded', function() {
         resetModal();
     });
 
-    // Global functions for date and time selection
+   
     window.selectDate = function(button) {
         const selectedDate = button.dataset.date;
         dateSelection.classList.add('hidden');
@@ -1231,7 +1220,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// more smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -1242,7 +1230,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar scroll effect
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
@@ -1251,7 +1238,7 @@ window.addEventListener('scroll', function() {
         navbar.style.background = 'rgba(74, 59, 44, 0.8)';
     }
 });
-        //mooth scrolling
+        
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1261,7 +1248,7 @@ window.addEventListener('scroll', function() {
             });
         });
 
-        // scroll animation for navbar
+      
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
@@ -1331,12 +1318,11 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     `;
 
-   //if not exist add modal
     if (!document.getElementById('reservationModal')) {
         document.body.insertAdjacentHTML('beforeend', modalHTML);
     }
 
-    // Get all necessary elements
+  
     const modal = document.getElementById('reservationModal');
     const dateSelection = document.getElementById('dateSelection');
     const timeSelection = document.getElementById('timeSelection');
@@ -1345,29 +1331,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const timeSlots = document.getElementById('timeSlots');
     const closeModal = document.getElementById('closeModal');
     
-    // Get both reservation buttons
+    
     const reserveButton = document.getElementById('reserveButton');
     const heroReserveButton = document.getElementById('heroReserveButton');
 
-    // calender 2
     function generateCalendar() {
-        calendar.innerHTML = ''; // Clear existing calendar
+        calendar.innerHTML = ''; 
         const today = new Date();
         const daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
         const firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
 
-        // Add day headers
+      
         const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         days.forEach(day => {
             calendar.innerHTML += `<div class="text-center text-gray-400 font-bold">${day}</div>`;
         });
 
-        // Add blank spaces for days before first of month
+        
         for (let i = 0; i < firstDay; i++) {
             calendar.innerHTML += '<div></div>';
         }
 
-        // Add calendar days
         for (let day = 1; day <= daysInMonth; day++) {
             const date = new Date(today.getFullYear(), today.getMonth(), day);
             const isToday = date.toDateString() === today.toDateString();
@@ -1388,7 +1372,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    //time slots 2
+    
     function generateTimeSlots(selectedDate) {
     const times = [
         '11:30 AM', '12:00 PM', '12:30 PM', 
@@ -1397,7 +1381,7 @@ document.addEventListener('DOMContentLoaded', function() {
         '6:30 PM', '7:00 PM', '7:30 PM'
     ];
 
-    // current time in CST/CDT
+    
     const now = new Date().toLocaleString("en-US", {timeZone: "America/Chicago"});
     const currentTime = new Date(now);
     const selected = new Date(selectedDate);
@@ -1417,7 +1401,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         timeDate.setHours(hour, parseInt(minutes), 0, 0);
         
-        // 15 min buffer +
+        
         const bufferTime = new Date(currentTime);
         bufferTime.setMinutes(currentTime.getMinutes() + 15);
         
@@ -1437,7 +1421,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 window.selectTime = function(time) {
-    // current time in CST/CDT
+   
     const now = new Date().toLocaleString("en-US", {timeZone: "America/Chicago"});
     const currentTime = new Date(now);
     const selectedDate = new Date(window.selectedDate);
@@ -1456,8 +1440,7 @@ window.selectTime = function(time) {
         }
         
         timeDate.setHours(hour, parseInt(minutes), 0, 0);
-        
-        //  15-minute +
+      
         const bufferTime = new Date(currentTime);
         bufferTime.setMinutes(currentTime.getMinutes() + 15);
         
@@ -1491,7 +1474,7 @@ window.selectTime = function(time) {
     const selectedDate = new Date(window.selectedDate);
     const isToday = selectedDate.toDateString() === now.toDateString();
     
-    if (isToday) {  // Only validate times for today this shit dont evne work
+    if (isToday) {  
         const [timeStr, period] = time.split(' ');
         const [hours, minutes] = timeStr.split(':');
         const timeDate = new Date(selectedDate);
@@ -1653,7 +1636,7 @@ window.selectTime = function(time) {
         calendar.innerHTML = '';
     }
 
-    // Global functions for date and time selection
+   
     window.selectDate = function(button) {
         const selectedDate = button.dataset.date;
         dateSelection.classList.add('hidden');
@@ -1667,7 +1650,7 @@ window.selectTime = function(time) {
     const selectedDate = new Date(window.selectedDate);
     const isToday = selectedDate.toDateString() === now.toDateString();
     
-    if (isToday) {  // Only validate time if it's today
+    if (isToday) { 
         const [timeStr, period] = time.split(' ');
         const [hours, minutes] = timeStr.split(':');
         const timeDate = new Date(selectedDate);
@@ -1680,8 +1663,7 @@ window.selectTime = function(time) {
         }
         
         timeDate.setHours(hour, parseInt(minutes), 0, 0);
-        
-        // Add 15 minutes buffer to current time
+
         now.setMinutes(now.getMinutes() + 15);
         
         if (timeDate <= now) {
@@ -1689,7 +1671,7 @@ window.selectTime = function(time) {
             return;
         }
     }
-    // If it's not today, skip all time validation and proceed with the reservation
+
 
     const formattedDate = new Date(window.selectedDate).toLocaleDateString('en-US', {
         weekday: 'long',
@@ -1716,27 +1698,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const slides = document.querySelectorAll('.testimonial-slide');
     let currentSlide = 0;
     let slideInterval;
-    const intervalTime = 3000; // 3 seconds
+    const intervalTime = 2000; 
 
-    // Function to show a specific slide
+    
     function showSlide(index) {
         slides.forEach(slide => slide.classList.remove('active'));
         slides[index].classList.add('active');
     }
 
-    // Function to move to next slide
+    
     function nextSlide() {
         currentSlide = (currentSlide + 1) % slides.length;
         showSlide(currentSlide);
     }
 
-    // Start the slideshow
+    
     function startSlideshow() {
-        showSlide(currentSlide); // Show first slide immediately
+        showSlide(currentSlide); 
         slideInterval = setInterval(nextSlide, intervalTime);
     }
 
-    // Pause on hover
+    
     const testimonialContainer = document.getElementById('testimonials-container');
     testimonialContainer.addEventListener('mouseenter', () => {
         clearInterval(slideInterval);
@@ -1746,7 +1728,7 @@ document.addEventListener('DOMContentLoaded', function() {
         slideInterval = setInterval(nextSlide, intervalTime);
     });
 
-    // Start the slideshow when the page loads
+   
     startSlideshow();
 });
 </script>
@@ -1761,15 +1743,15 @@ function scrollToTop(event) {
 }
 </script>
 <script>
-    // Add this to your existing JavaScript
+    
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuButton = document.querySelector('.mobile-menu-button');
     const mobileMenu = document.querySelector('.mobile-menu');
     
-    // Toggle mobile menu
+   
     mobileMenuButton.addEventListener('click', () => {
         mobileMenu.classList.toggle('active');
-        // Toggle menu icon to close icon
+       
         const isOpen = mobileMenu.classList.contains('active');
         mobileMenuButton.innerHTML = isOpen ? 
             `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -1824,7 +1806,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const sendMessage = document.getElementById('sendMessage');
     const chatMessages = document.getElementById('chatMessages');
 
-    // Toggle chat window
     toggleChat.addEventListener('click', () => {
         chatWindow.classList.add('active');
     });
@@ -1833,7 +1814,7 @@ document.addEventListener('DOMContentLoaded', function() {
         chatWindow.classList.remove('active');
     });
 
-    // Add message to chat
+  
     const addMessage = (text, sender) => {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message', `${sender}-message`);
@@ -1842,7 +1823,7 @@ document.addEventListener('DOMContentLoaded', function() {
         chatMessages.scrollTop = chatMessages.scrollHeight;
     };
 
-    // Create loading indicator
+
     const createLoadingIndicator = () => {
         const loadingDiv = document.createElement('div');
         loadingDiv.classList.add('message', 'bot-message', 'loading');
@@ -1850,7 +1831,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return loadingDiv;
     };
 
-    // Typing effect function
+  
     const typeMessage = (messageDiv, text, speed = 10) => {
         return new Promise((resolve) => {
             let index = 0;
@@ -1871,7 +1852,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
-    // Send message function
+ 
     const sendMessageHandler = async () => {
         const message = messageInput.value.trim();
         if (!message) return;
@@ -1947,12 +1928,12 @@ When answering questions, be friendly and conversational while providing specifi
             const data = await response.json();
             loadingIndicator.remove();
             
-            // Create message div before typing
+       
             const botMessageDiv = document.createElement('div');
             botMessageDiv.classList.add('message', 'bot-message');
             chatMessages.appendChild(botMessageDiv);
             
-            // Use typing effect
+      
             await typeMessage(botMessageDiv, data.choices[0].message.content);
         } catch (error) {
             console.error('Error:', error);
@@ -1966,7 +1947,7 @@ When answering questions, be friendly and conversational while providing specifi
         }
     };
 
-    // Event listeners for sending messages
+
     sendMessage.addEventListener('click', sendMessageHandler);
     messageInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
