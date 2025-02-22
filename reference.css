@@ -1,0 +1,169 @@
+:root {
+    --primary-bg: #2C1810;
+    --secondary-bg: #4A3B2C;
+    --accent-color: #8B9D77;
+    --accent-color-light: #C5D1BA;
+    --text-primary: #F5F5F5;
+    --text-secondary: #E0E0E0;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-primary);
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+
+section {
+    position: relative;
+    background: linear-gradient(180deg, 
+        var(--primary-bg) 0%,
+        var(--secondary-bg) 50%,
+        var(--primary-bg) 100%
+    );
+    transition: background 0.5s ease;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(to bottom, 
+        transparent 0%,
+        var(--primary-bg) 100%
+    );
+}
+
+section::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(to top, 
+        transparent 0%,
+        var(--primary-bg) 100%
+    );
+    z-index: 1;
+}
+
+.navbar {
+    background: rgba(10, 9, 7, 0.8);;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+.navbar .primary-btn {
+    padding: 0.5rem 1.25rem;  
+    font-size: 0.875rem;      
+    transform: translateY(-1px); 
+    margin-left: 1rem;       
+    line-height: 1.25;        
+}
+
+.navbar a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.navbar a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background: rgba(150, 235, 154, 0.8);
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover:after {
+    width: 100%;
+}
+
+.navbar.scrolled {
+    background: rgba(74, 59, 44, 0.95);
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.reference-card {
+    background: rgba(74, 59, 44, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(245, 245, 245, 0.2);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.reference-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    background: rgba(74, 59, 44, 0.8);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.primary-btn {
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
+    color: var(--primary-bg);
+    transition: all 0.3s ease;
+}
+        .nav-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
+    z-index: 60;
+    transition: width 0.3s ease-out;
+    transform-origin: left;
+    box-shadow: 0 0 10px rgba(139, 157, 119, 0.4);
+}
+
+.nav-progress.active {
+    width: 100%;
+}
+
+
+.nav-progress.active {
+    box-shadow: 0 0 10px rgba(139, 157, 119, 0.4);
+}
+
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease-out forwards;
+}
+
+.fade-up-delay-1 {
+    animation-delay: 0.2s;
+}
+
+.fade-up-delay-2 {
+    animation-delay: 0.4s;
+}
+
+.fade-up-delay-3 {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
