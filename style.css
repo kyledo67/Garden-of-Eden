@@ -870,11 +870,11 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .testimonials-row {
-    animation: scroll 90s linear infinite;
+    animation: scroll 70s linear infinite;
 }
 
 .testimonials-row-reverse {
-    animation: scroll-reverse 90s linear infinite;
+    animation: scroll-reverse 70s linear infinite;
 }
 
 .testimonials-row:hover,
