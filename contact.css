@@ -72,9 +72,10 @@ section + section {
 .contact-section > *:last-child {
     margin-bottom: 0;
 }
+
 .navbar {
-    background: rgba(12, 10, 8, 0.95); 
-    backdrop-filter: blur(5px);
+    background: #061221 !important;
+    backdrop-filter: blur(10px);
     transition: all 0.3s ease;
 }
 .navbar .primary-btn {
@@ -106,5 +107,5 @@ section + section {
 }
 
 .navbar.scrolled {
-    background: rgba(12, 10, 8, 0.95);
+    background-color: #0d1d31 !important;
 }
