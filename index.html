@@ -6,7 +6,7 @@
     <title>Garden of Eden - Farm-to-Table Vegetarian Restaurant</title>
     <meta name="description" content="Experience fresh, organic vegetarian cuisine from our own sustainable gardens">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;400;500;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="navigation.js" defer></script>
     <script src="reserve.js" defer></script>
@@ -37,7 +37,7 @@
             
             <div class="hidden md:flex items-center justify-center flex-1 mx-12">
                 <div class="flex space-x-8">
-                    <a onclick="scrollToTop(event)" class="text-white hover:text-cyan-400 transition-colors cursor-pointer">Home</a>
+                    <a href="index.html" class="text-white hover:text-cyan-400 transition-colors cursor-pointer">Home</a>
                     <a href="#menu" class="text-white hover:text-cyan-400 transition-colors">Menu</a>
                     <a href="#testimonials" class="text-white hover:text-cyan-400 transition-colors">Reviews</a>
                     <a href="#farm" class="text-white hover:text-cyan-400 transition-colors">Our Farm</a>
@@ -233,76 +233,351 @@
             </div>
         </div>
     </section>
-    <section class="py-20 px-4 bg-[#2C1810]" id="benefits">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-16">
-                <span class="gradient-text">Steps We </span> Take
-            </h2>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="benefit-card">
-                    <div class="text-4xl mb-4">1</div>
-                    <h3 class="text-xl font-bold mb-3 gradient-text">Organic</h3>
-                    <p class="text-gray-300">We grow our ingredients on our farm using sustainable, organic farming methods. This means no chemical fertilizers or pesticides, just natural compost and crop rotation to maintain soil health and biodiversity. Our fields are irrigated with collected rainwater to conserve resources.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="text-4xl mb-4">2</div>
-                    <h3 class="text-xl font-bold mb-3 gradient-text">Harvest</h3>
-                    <p class="text-gray-300">Commitment to sustainable practices with composting and minimal packaging, and each vegetable is handpicked at peak ripeness to ensure maximum freshness and flavor. By harvesting only what's needed, we minimize food waste and maintain a low carbon footprint.</p>
-                </div>
-                
-                <div class="benefit-card">
-                    <div class="text-4xl mb-4">3</div>
-                    <h3 class="text-xl font-bold mb-3 gradient-text">Formation</h3>
-                    <p class="text-gray-300">In our kitchen, the farm-fresh produce is thoroughly cleaned and prepared by hand. We use simple, natural cooking techniques—such as roasting, steaming, and sautéing—to highlight the natural flavors of each ingredient. Our menu focuses on seasonal offerings, ensuring only the freshest items make it to your plate. Any trimmings or scraps are either used to make stocks or sauces or are composted to return nutrients to the farm. Even the plating process reflects our values, emphasizing beauty, balance, and respect for the food we grow.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 px-4 bg-secondary-bg" id="testimonials">
+   
+    <section class="py-20 px-4" id="testimonials">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold text-center mb-16">
                 What Our <span class="gradient-text">Guests</span> Say
             </h2>
-            <div class="relative" id="testimonials-container">
-                <div class="testimonial-wrapper">
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <p class="text-lg text-gray-300 mb-4">"The farm-to-table experience at Garden of Eden is unmatched. The fresh vegetables and innovative dishes changed my perspective on vegetarian cuisine."</p>
+            
+            <div class="testimonials-wrapper">
+                <div class="testimonials-row testimonials-row-reverse">
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Amazing Experience</p>
+                            <p class="text-lg text-gray-400 mb-5">"The farm-to-table experience at Garden of Eden is unmatched. The fresh vegetables and innovative dishes changed my perspective on vegetarian cuisine."</p>
                             <p class="gradient-text font-bold">Gordon R.</p>
                         </div>
                     </div>
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <p class="text-lg text-gray-300 mb-4">"As someone who was skeptical about vegetarian restaurants, Garden of Eden completely won me over. Their commitment to organic farming is evident in every dish."</p>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Skeptical..but</p>
+                            <p class="text-lg text-gray-400 mb-5">"As someone who was skeptical about vegetarian restaurants, Garden of Eden completely won me over. Their commitment to organic farming is evident in every dish."</p>
                             <p class="gradient-text font-bold">Oswald J.</p>
                         </div>
                     </div>
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <p class="text-lg text-gray-300 mb-4">"The connection between the farm and kitchen is beautiful to witness. You can taste the difference in vegetables harvested the same day."</p>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Beautiful, just beautiful</p>
+                            <p class="text-lg text-gray-400 mb-5">"The connection between the farm and kitchen is beautiful to witness. You can taste the difference in vegetables harvested the same day."</p>
                             <p class="gradient-text font-bold">George W.</p>
                         </div>
                     </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Life Changing</p>
+                            <p class="text-lg text-gray-400 mb-5">"Wow, this was an experience. Customer service, food, setting: 10/10."</p>
+                            <p class="gradient-text font-bold">Curry W.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">WWWW</p>
+                            <p class="text-lg text-gray-400 mb-5">"Nah this place was fire, no meat but it was so good I ain't even care fr."</p>
+                            <p class="gradient-text font-bold">Aj W.</p>
+                        </div>
+                    </div>
+    
                     
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <p class="text-lg text-gray-300 mb-4">"I decided to go here after a soccer game after being benched all game, the food was so delightful it turned my frown to a happy one even though I was benched. I quit varsity soccer so I could eat here more!"</p>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Amazing Experience</p>
+                            <p class="text-lg text-gray-400 mb-5">"The farm-to-table experience at Garden of Eden is unmatched. The fresh vegetables and innovative dishes changed my perspective on vegetarian cuisine."</p>
+                            <p class="gradient-text font-bold">Gordon R.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Skeptical..but</p>
+                            <p class="text-lg text-gray-400 mb-5">"As someone who was skeptical about vegetarian restaurants, Garden of Eden completely won me over. Their commitment to organic farming is evident in every dish."</p>
+                            <p class="gradient-text font-bold">Oswald J.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Beautiful, just beautiful</p>
+                            <p class="text-lg text-gray-400 mb-5">"The connection between the farm and kitchen is beautiful to witness. You can taste the difference in vegetables harvested the same day."</p>
+                            <p class="gradient-text font-bold">George W.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Life Changing</p>
+                            <p class="text-lg text-gray-400 mb-5">"Wow, this was an experience. Customer service, food, setting: 10/10."</p>
+                            <p class="gradient-text font-bold">Curry W.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">WWWW</p>
+                            <p class="text-lg text-gray-400 mb-5">"Nah this place was fire, no meat but it was so good I ain't even care fr."</p>
+                            <p class="gradient-text font-bold">Aj W.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Amazing Experience</p>
+                            <p class="text-lg text-gray-400 mb-5">"The farm-to-table experience at Garden of Eden is unmatched. The fresh vegetables and innovative dishes changed my perspective on vegetarian cuisine."</p>
+                            <p class="gradient-text font-bold">Gordon R.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Skeptical...but</p>
+                            <p class="text-lg text-gray-400 mb-5">"As someone who was skeptical about vegetarian restaurants, Garden of Eden completely won me over. Their commitment to organic farming is evident in every dish."</p>
+                            <p class="gradient-text font-bold">Oswald J.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Life Changing</p>
+                            <p class="text-lg text-gray-400 mb-5">"Holy crap dude this was insane, the customer service, the food..tears."</p>
+                            <p class="gradient-text font-bold">Super W.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Life Changing</p>
+                            <p class="text-lg text-gray-400 mb-5">"Wow, this was an experience. Customer service, food, setting: 10/10."</p>
+                            <p class="gradient-text font-bold">Curry W.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">WWWW</p>
+                            <p class="text-lg text-gray-400 mb-5">"Nah this place was fire, no meat but it was so good I ain't even care fr."</p>
+                            <p class="gradient-text font-bold">Aj W.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Amazing Experience</p>
+                            <p class="text-lg text-gray-400 mb-5">"The farm-to-table experience at Garden of Eden is unmatched. The fresh vegetables and innovative dishes changed my perspective on vegetarian cuisine."</p>
+                            <p class="gradient-text font-bold">Gordon R.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Skeptical..but</p>
+                            <p class="text-lg text-gray-400 mb-5">"As someone who was skeptical about vegetarian restaurants, Garden of Eden completely won me over. Their commitment to organic farming is evident in every dish."</p>
+                            <p class="gradient-text font-bold">Oswald J.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Beautiful, just beautiful</p>
+                            <p class="text-lg text-gray-400 mb-5">"The connection between the farm and kitchen is beautiful to witness. You can taste the difference in vegetables harvested the same day."</p>
+                            <p class="gradient-text font-bold">George W.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Life Changing</p>
+                            <p class="text-lg text-gray-400 mb-5">"Wow, this was an experience. Customer service, food, setting: 10/10."</p>
+                            <p class="gradient-text font-bold">Curry W.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">WWWW</p>
+                            <p class="text-lg text-gray-400 mb-5">"Nah this place was fire, no meat but it was so good I ain't even care fr."</p>
+                            <p class="gradient-text font-bold">Aj W.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Seasonal Delight</p>
+                            <p class="text-lg text-gray-400 mb-5">"Love how the menu changes with the seasons. Each visit brings new surprises and flavors. Their winter squash dishes are particularly outstanding."</p>
+                            <p class="gradient-text font-bold">Nathan Q.</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">First Timer's Joy</p>
+                            <p class="text-lg text-gray-400 mb-5">"My first vegetarian fine dining experience and it exceeded all expectations. The staff's recommendations were spot-on. Can't wait to return!"</p>
+                            <p class="gradient-text font-bold">Chris P.</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Local Gem</p>
+                            <p class="text-lg text-gray-400 mb-5">"As a neighborhood resident, I've watched this place grow. Their commitment to quality and community never wavers. A true local treasure."</p>
+                            <p class="gradient-text font-bold">Mark L.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Health Goals</p>
+                            <p class="text-lg text-gray-400 mb-5">"As someone focused on clean eating, this place is a godsend. They accommodate all dietary restrictions with creativity and flavor. No compromises needed!"</p>
+                            <p class="gradient-text font-bold">Fitness F.</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Special Occasion Spot</p>
+                            <p class="text-lg text-gray-400 mb-5">"Celebrated my promotion here and couldn't have chosen better. The staff made the evening extra special with their attention to detail and personalized service."</p>
+                            <p class="gradient-text font-bold">Alex T.</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Wine Lover's Paradise</p>
+                            <p class="text-lg text-gray-400 mb-5">"Their organic wine selection perfectly complements the menu. The sommelier's knowledge of pairings with vegetarian dishes is impressive!"</p>
+                            <p class="gradient-text font-bold">Victoria W.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                                                                            
+            
+            <div class="testimonials-wrapper">
+                <div class="testimonials-row">
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Instagram Worthy</p>
+                            <p class="text-lg text-gray-400 mb-5">"Every dish is a work of art! The colors, the plating, the flavors - everything is perfect for the 'gram. But it tastes even better than it looks!"</p>
+                            <p class="gradient-text font-bold">Sofia P.</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Business Lunch Spot</p>
+                            <p class="text-lg text-gray-400 mb-5">"Perfect for client meetings. The quiet atmosphere and exceptional service make it ideal for business discussions. The lunch menu is innovative yet approachable."</p>
+                            <p class="gradient-text font-bold">James C.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Soccer</p>
+                            <p class="text-lg text-gray-400 mb-5">"I decided to go here after a soccer game after being benched all game, the food was so delightful it turned my frown to a happy one even though I was benched."</p>
                             <p class="gradient-text font-bold">Ron Mcd.</p>
                         </div>
                     </div>
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <p class="text-lg text-gray-300 mb-4">"Oh. My. Goodness. Garden of Eden, Tears, literal tears. This is unfathomable; your restaurant resonates deep inside my heart. It's something where I can look out the windows, drink some coffee, and really touch with. How are you able to use your food to penetrate through the human soul? I am so jubilant to have a high classed restaurant as you in my vicinity. With this profound resolution, we as humans, are able to articulate more flavors in an expansive way.</pp>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Tears</p>
+                            <p class="text-lg text-gray-400 mb-5">"Oh. My. Goodness. Garden of Eden, Tears, literal tears. This is unfathomable; your restaurant resonates deep inside my heart."</p>
                             <p class="gradient-text font-bold">Lebron J.</p>
                         </div>
                     </div>
-                    <div class="testimonial-slide">
-                        <div class="testimonial-card">
-                            <p class="text-lg text-gray-300 mb-4">"Oh, I beseech thee, kind soul, lift me from this place. With all my heart, I implore thy aid, for I am bound in woe and yearn for deliverance. Grant me thy swift grace, and let me rest no longer in despair, and take me to thy restaurant again, so I may experience thy bliss."</pp>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Better than beans on toast</p>
+                            <p class="text-lg text-gray-400 mb-5">"Oh, I beseech thee, kind soul, lift me from this place. With all my heart, I implore thy aid, for I am bound in woe and yearn for deliverance."</p>
                             <p class="gradient-text font-bold">John D.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">10/10</p>
+                            <p class="text-lg text-gray-400 mb-5">"This was amazing, customer service was 10/10. Will be coming back."</p>
+                            <p class="gradient-text font-bold">Kyrie I.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Fresh</p>
+                            <p class="text-lg text-gray-400 mb-5">"This was some of the freshest foods I've ever tried! I love the aesthetic as well, overall 10/10. I'll be coming back here soon!."</p>
+                            <p class="gradient-text font-bold">Reag S.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">First impression</p>
+                            <p class="text-lg text-gray-400 mb-5">"Decided to try vegetarian food for the first time, did not regret it at all. Garden of eden brought me a whole new experience!"</p>
+                            <p class="gradient-text font-bold">Connor Mc.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Family Favorite</p>
+                            <p class="text-lg text-gray-400 mb-5">"My kids were skeptical at first, but now they beg to come here! The creative presentation makes eating vegetables fun. Who knew my picky eaters would love beets?"</p>
+                            <p class="gradient-text font-bold">Michelle K.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Family Favorite</p>
+                            <p class="text-lg text-gray-400 mb-5">"My kids were skeptical at first, but now they beg to come here! The creative presentation makes eating vegetables fun. Who knew my picky eaters would love beets?"</p>
+                            <p class="gradient-text font-bold">Michelle K.</p>
+                        </div>
+                    </div>
+    
+                    
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Instagram Worthy</p>
+                            <p class="text-lg text-gray-400 mb-5">"Every dish is a work of art! The colors, the plating, the flavors - everything is perfect for the 'gram. But it tastes even better than it looks!"</p>
+                            <p class="gradient-text font-bold">Sofia P.</p>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Business Lunch Spot</p>
+                            <p class="text-lg text-gray-400 mb-5">"Perfect for client meetings. The quiet atmosphere and exceptional service make it ideal for business discussions. The lunch menu is innovative yet approachable."</p>
+                            <p class="gradient-text font-bold">James C.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Soccer</p>
+                            <p class="text-lg text-gray-400 mb-5">"I decided to go here after a soccer game after being benched all game, the food was so delightful it turned my frown to a happy one even though I was benched."</p>
+                            <p class="gradient-text font-bold">Ron Mcd.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Tears</p>
+                            <p class="text-lg text-gray-400 mb-5">"Oh. My. Goodness. Garden of Eden, Tears, literal tears. This is unfathomable; your restaurant resonates deep inside my heart."</p>
+                            <p class="gradient-text font-bold">Lebron J.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Better than beans on toast</p>
+                            <p class="text-lg text-gray-400 mb-5">"Oh, I beseech thee, kind soul, lift me from this place. With all my heart, I implore thy aid, for I am bound in woe and yearn for deliverance."</p>
+                            <p class="gradient-text font-bold">John D.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">10/10</p>
+                            <p class="text-lg text-gray-400 mb-5">"This was amazing, customer service was 10/10. Will be coming back."</p>
+                            <p class="gradient-text font-bold">Kyrie I.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Fresh</p>
+                            <p class="text-lg text-gray-400 mb-5">"This was some of the freshest foods I've ever tried! I love the aesthetic as well, overall 10/10. I'll be coming back here soon!."</p>
+                            <p class="gradient-text font-bold">Reag S.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">First impression</p>
+                            <p class="text-lg text-gray-400 mb-5">"Decided to try vegetarian food for the first time, did not regret it at all. Garden of eden brought me a whole new experience!"</p>
+                            <p class="gradient-text font-bold">Connor Mc.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Family Favorite</p>
+                            <p class="text-lg text-gray-400 mb-5">"My kids were skeptical at first, but now they beg to come here! The creative presentation makes eating vegetables fun. Who knew my picky eaters would love beets?"</p>
+                            <p class="gradient-text font-bold">Michelle K.</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="p-6 rounded-lg bg-opacity-60 backdrop-blur-md">
+                            <p class="review-title">Family Favorite</p>
+                            <p class="text-lg text-gray-400 mb-5">"My kids were skeptical at first, but now they beg to come here! The creative presentation makes eating vegetables fun. Who knew my picky eaters would love beets?"</p>
+                            <p class="gradient-text font-bold">Michelle K.</p>
                         </div>
                     </div>
                 </div>
@@ -314,27 +589,27 @@
             </div>
         </div>
     </div>
-</section>
+
     <section id="farm" class="py-20 px-4">
         <div class="max-w-7xl mx-auto">
             <h2 class="text-4xl font-bold mb-12 text-center">Our Organic Farm</h2>
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="space-y-6">
-                    <p class="text-gray-300 text-lg">
+                    <p class="text-gray-400 text-lg">
                         Every dish begins in our certified organic farm, where we have over 
                         50 varieties of vegetables and fruits. Our sustainable 
                         farming practices preserve soil health and support local biodiversity.
                     </p>
                     <ul class="space-y-4">
-                        <li class="flex items-center text-gray-300">
+                        <li class="flex items-center text-gray-400">
                             <span class="text-cyan-400 mr-2">•</span>
                             Zero-waste farming practices
                         </li>
-                        <li class="flex items-center text-gray-300">
+                        <li class="flex items-center text-gray-400">
                             <span class="text-cyan-400 mr-2">•</span>
                             Organic Ingredients for our Restaurant
                         </li>
-                        <li class="flex items-center text-gray-300">
+                        <li class="flex items-center text-gray-400">
                             <span class="text-cyan-400 mr-2">•</span>
                             Heritage seed preservation
                         </li>
@@ -344,12 +619,12 @@
                     <img src="https://images.stockcake.com/public/4/a/7/4a7c8783-b89d-418d-8cb3-266f70278661_large/idyllic-farm-landscape-stockcake.jpg" 
      alt="Farm image 1" 
      class="rounded-lg card" 
-     style="width: 300px; height: 200px; object-fit: cover;">
+     style="width: 400px; height: 200px; object-fit: cover;">
 
 <img src="https://media.istockphoto.com/id/965148388/photo/green-ripening-soybean-field-agricultural-landscape.jpg?s=612x612&w=0&k=20&c=cEVP3uj34-5obt-Jf_WI3O9qfP6tVrFaQIv1rBvvpzc=" 
      alt="Farm image 2" 
      class="rounded-lg card" 
-     style="width: 300px; height: 200px; object-fit: cover;">
+     style="width: 400px; height: 200px; object-fit: cover;">
 
 
                 </div>
@@ -402,7 +677,7 @@
                         <h3 class="text-sm font-semibold text-white mb-2">Stay Tuned</h3>
                         <p class="text-gray-400 text-sm mb-2">Sign up to enjoy exclusive promotions</p>
                         <div class="flex">
-                            <input type="email" placeholder="Enter your email" class="bg-gray-800 text-white text-sm px-3 py-2 rounded-l-lg w-full border border-gray-700 focus:outline-none focus:border-[#8B9D77]">
+                            <input type="email" placeholder="Enter your email" class="bg-gray-800 text-white text-sm px-3 py-2 rounded-l-lg w-full focus:outline-none focus:border-[#8B9D77]">
                             <button class="bg-[#8B9D77] hover:bg-[#C5D1BA] text-white px-4 py-2 rounded-r-lg text-sm border border-[#8B9D77] transition-colors duration-200">Subscribe</button>
                         </div>
                     </div>
@@ -413,12 +688,12 @@
             <div class="border-t border-gray-800 pt-4">
                 <div class="flex flex-wrap gap-4 text-sm text-gray-400">
                     <p><span class="font-medium">Legal Name:</span> Garden of Eden</p>
-                    <span class="hidden sm:inline text-gray-600">•</span>
+                    <span class="hidden sm:inline text-gray-400">•</span>
                     <p><span class="font-medium">Location:</span> 23512 Nature Way
                         Bithlo, TX 32820</p>
-                    <span class="hidden sm:inline text-gray-600">•</span>
+                    <span class="hidden sm:inline text-gray-400">•</span>
                     <p><span class="font-medium">Support:</span> support@gardenofeden.com</p>
-                    <span class="hidden sm:inline text-gray-600">•</span>
+                    <span class="hidden sm:inline text-gray-400">•</span>
                     <p><span class="font-medium">Hours of Operation:</span> Monday - Sunday, 11:30AM - 8:30PM</p>
                 </div>
             </div>
@@ -480,10 +755,21 @@
         </div>
             </div>
 </div>
-<button id="backToTop" class="fixed bottom-8 right-8 bg-[#8B9D77] text-white p-4 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-[#C5D1BA]" style="z-index: 100;">
+<button id="backToTop" class="fixed bottom-8 right-8 bg-[#8B9D77] text-white p-4 rounded-full shadow-lg opacity-0 transition-opacity duration-400 hover:bg-[#C5D1BA]" style="z-index: 100;">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
     </svg>
 </button>
+<script>
+    window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY >= 0)  { 
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+</script>
+
 </body>
 </html>
