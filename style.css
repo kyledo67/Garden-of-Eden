@@ -35,6 +35,7 @@ section::before {
         transparent 0%,
         var(--primary-bg) 100%
     );
+    z-index: 1; 
 }
 
 section::after {
@@ -52,8 +53,8 @@ section::after {
 }
 
 .navbar {
-    background: rgba(12, 10, 8, 0.95); 
-    backdrop-filter: blur(5px);
+    background: #061221;
+    backdrop-filter: blur(10px);
     transition: all 0.3s ease;
 }
 .navbar .primary-btn {
@@ -85,7 +86,7 @@ section::after {
 }
 
 .navbar.scrolled {
-    background: rgba(12, 10, 8, 0.95);
+    background-color: #0d1d31 !important;
 }
 
 .gradient-text {
@@ -419,52 +420,8 @@ footer {
 }
 
 
-.testimonial-wrapper {
-    position: relative;
-    min-height: 200px; 
-    width: 100%;
-    margin-bottom: 2rem; 
-}
 
-.testimonial-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    height: auto; 
-}
-
-.testimonial-slide.active {
-    opacity: 1;
-    position: relative;
-}
-.testimonial-card {
-    background: rgba(74, 59, 44, 0.6);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(7, 4, 4, 0.2);
-    border-radius: 0.5rem;
-    padding: 1.5rem; 
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 0 auto;
-    max-width: 100%;
-    overflow-y: auto; 
-    height: auto; 
-}
-.testimonial-card p.text-lg {
-    font-size: 1rem; 
-    line-height: 1.5;
-    margin-bottom: 1rem;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--accent-color);
-    background: rgba(74, 59, 44, 0.8);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}   
+ 
 @media (min-width: 640px) {
     .testimonial-card {
         padding: 2rem;
@@ -673,6 +630,7 @@ input[type="email"]:focus {
 }
 
 
+
 .nav-progress {
     position: fixed;
     top: 0;
@@ -827,4 +785,124 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 .faq-content .card {
     margin-bottom: 1rem;
     background: rgba(3, 2, 2, 0.6);
+}
+
+.testimonials-container {
+    display: flex;
+    gap: 1rem;  
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.testimonial-card > div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.testimonials-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+    margin: 2rem 0;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.testimonials-row {
+    display: flex;
+    gap: 1rem;  
+    padding: 1rem 0;
+    position: relative;
+    width: fit-content;
+    transform: translateX(0);
+}
+
+.testimonials-row-reverse {
+    flex-direction: row-reverse;
+    transform: translateX(calc(-100% / 2));
+}
+
+.testimonial-card {
+    flex: 0 0 auto;
+    width: 500px;
+    background: #362b20;
+    backdrop-filter: blur(10px);
+    border: 1.2px solid #f5f2f220;
+    border-radius: 1.5rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    padding: 2rem;
+}
+
+.testimonial-card > div {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+}
+
+
+.testimonial-card .review-title {
+    font-size: 1.25rem;
+    color: gray-400;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+}
+
+
+.testimonial-card .review-text {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: gray-400;
+    margin-bottom: 0.5rem; 
+}
+
+
+.testimonial-card .gradient-text {
+    font-size: 1.25rem;
+    color: white !important;
+}
+
+.testimonials-row {
+    animation: scroll 90s linear infinite;
+}
+
+.testimonials-row-reverse {
+    animation: scroll-reverse 90s linear infinite;
+}
+
+.testimonials-row:hover,
+.testimonials-row-reverse:hover {
+    animation-play-state: paused;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(101, 103, 101, 0.918);
+    background: rgba(74, 59, 44, 0.8);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-100% / 2));
+    }
+}
+
+@keyframes scroll-reverse {
+    from {
+        transform: translateX(calc(-100% / 2));
+    }
+    to {
+        transform: translateX(0);
+    }
 }
