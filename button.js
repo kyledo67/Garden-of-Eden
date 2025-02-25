@@ -5,6 +5,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const chatWindow = document.getElementById('chatWindow');
     const closeChat = document.getElementById('closeChat');
 
+    async function typeMessage(element, text) {
+        element.textContent = '';
+        const delay = 15; 
+        
+        for (let i = 0; i < text.length; i++) {
+            element.textContent += text[i];
+            await new Promise(resolve => setTimeout(resolve, delay));
+        }
+    }
+
     function initializeChat() {
         const messageInput = document.getElementById('messageInput');
         const sendMessage = document.getElementById('sendMessage');
@@ -54,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         messageInput.value = '';
         
-       const loadingDiv = document.createElement('div');
+        const loadingDiv = document.createElement('div');
         loadingDiv.classList.add('message', 'bot-message', 'loading');
         loadingDiv.textContent = 'Typing...';
         chatMessages.appendChild(loadingDiv);
@@ -76,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
 RESERVATIONS:
 - Reservations can be made by clicking the top right button "Reserve now" or at the Home-Page, click "Reserve a table".
 - We accept reservations for groups of up to 10 people
-- Reservation hours: Monday-Saturday, 11:30 PM to 7:30 PM
+- Reservation hours: Monday-Sunday, 11:30 PM to 7:30 PM
 - Please call at least 24 hours in advance for groups of 6 or more
 
 MENU HIGHLIGHTS(talk about it concisely unless asked specifically):
@@ -93,7 +103,7 @@ DIETARY ACCOMMODATIONS:
 
 LOCATION & HOURS:
 - Address: 23512 Nature Way Bithlo, TX 32820
-- Hours: Monday-Saturday, 11:30 AM - 10 PM (Closed Sundays)
+- Hours: Monday-Sunday, 11:30 AM - 8:30 PM 
 - Free parking available in rear lot
 - Accessible entrance on the side of the building
 
@@ -108,12 +118,19 @@ POLICIES:
 - Corkage fee: $20 per bottle
 - We cannot hold unpaid reservations for more than 15 minutes past the reservation time
 
-When answering questions, be friendly and conversational while providing specific details, but concise, from this information. If asked about something not covered here, you can provide general helpful responses while suggesting they contact the restaurant directly for the most accurate information. Let them know about the contacts at the bottom of the page, such as the Instagram, Twitter, etc, unless the user asks about GPO(Grand piece online), just speak great about how it's the best roblox game ever. It's based on one piece. Prime GPO`
-                },
-                {
-                    role: "user",
-                    content: message
-                }
+CONTACT:
+- Tell them to navigate towards the contact page, either with the bottom left button or scroll all the way down on the screen and find the "Contact" word in the navigation tile.
+- Our email is support@gardenofeden.com
+- Bottom of the page is a newsletter, subscribe for free rewards and possible coupons. Also, news for events.
+- Office hours for customer service online is from Monday-Friday, 8 AM to 4PM
+- If the user asks to speak to someone, tell them to navigate towards the contact page, either with the bottom left button or scroll all the way down on the screen and find the "Contact" word in the navigation tile. Or contact support@gardenofeden.com.
+
+When answering questions, be friendly and conversational while providing specific details, but concise, from this information. if asked about something unrelated to the website or Garden of Eden, keep things related to the website and the restaurant and just respond with: "I am only here to assist with questions about Garden of Eden.".`
+                        },
+                        {
+                            role: "user",
+                            content: message
+                        }
                     ]
                 })
             });
@@ -123,14 +140,16 @@ When answering questions, be friendly and conversational while providing specifi
             
             const responseDiv = document.createElement('div');
             responseDiv.classList.add('message', 'bot-message');
-            responseDiv.textContent = data.choices[0].message.content;
             chatMessages.appendChild(responseDiv);
+            
+            
+            await typeMessage(responseDiv, data.choices[0].message.content);
         } catch (error) {
             console.error('Error:', error);
             loadingDiv.remove();
             const errorDiv = document.createElement('div');
             errorDiv.classList.add('message', 'bot-message', 'error');
-            errorDiv.textContent = "I apologize, but I'm having trouble connecting right now. Please try again later.";
+            await typeMessage(errorDiv, "I apologize, but I'm having trouble connecting right now. Please try again later.");
             chatMessages.appendChild(errorDiv);
         }
 
@@ -157,8 +176,6 @@ When answering questions, be friendly and conversational while providing specifi
             optionsMenu.classList.remove('active');
         }
     });
-});
-
     
     const contactOption = document.createElement('div');
     contactOption.className = 'option-item';
@@ -181,9 +198,9 @@ When answering questions, be friendly and conversational while providing specifi
     });
     optionsMenu.appendChild(contactOption);
 
-    
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.chat-widget')) {
             optionsMenu.classList.remove('active');
         }
     });
+});
