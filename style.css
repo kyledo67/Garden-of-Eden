@@ -828,7 +828,7 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 
 .testimonial-card {
     flex: 0 0 auto;
-    width: 500px;
+    width: 600px;
     background: #362b20;
     backdrop-filter: blur(10px);
     border: 1.2px solid #f5f2f220;
@@ -870,11 +870,11 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .testimonials-row {
-    animation: scroll 70s linear infinite;
+    animation: scroll 80s linear infinite;
 }
 
 .testimonials-row-reverse {
-    animation: scroll-reverse 70s linear infinite;
+    animation: scroll-reverse 80s linear infinite;
 }
 
 .testimonials-row:hover,
@@ -889,7 +889,7 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes scroll {
+@keyframes scroll-reverse {
     from {
         transform: translateX(0);
     }
@@ -898,7 +898,7 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 }
 
-@keyframes scroll-reverse {
+@keyframes scroll {
     from {
         transform: translateX(calc(-100% / 2));
     }
