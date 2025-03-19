@@ -68,7 +68,7 @@ document.getElementById('newsletterForm').addEventListener('submit', async (e) =
     const loadingBar = document.createElement('div');
     loadingBar.style.width = '0%';
     loadingBar.style.height = '100%';
-    loadingBar.style.background = '#fff';
+    loadingBar.style.background = '#fff'; 
     loadingBar.style.transition = 'width 0.7s linear';
     loadingBarContainer.appendChild(loadingBar);
     popup.appendChild(loadingBarContainer);
