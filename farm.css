@@ -1,222 +1,267 @@
-:root {
-    --primary-bg: #2C1810;
-    --secondary-bg: #4A3B2C;
-    --accent-color: #8B9D77;
-    --accent-color-light: #C5D1BA;
-    --text-primary: #F5F5F5;
-    --text-secondary: #E0E0E0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garden of Eden - Our Farm</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <script src="navigation.js" defer></script>
+    <link rel="stylesheet" href="farm.css">
+    <script src="reserve.js">defer</script>
+   
+    <script src="button.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+   
+    
+    
+</head>
+<body class="min-h-screen">
+    <div id="page-transition" class="fixed inset-0 bg-[#2C1810] z-[9999] pointer-events-none"></div>
+    <nav class="navbar fixed w-full top-0 z-50 px-4 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+           
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-bold gradient-text">Garden of Eden</a>
+            </div>
+    
+           
+            <div class="hidden md:flex items-center justify-center flex-1 mx-12">
+                <div class="flex space-x-8">
+                    <a href="index.html" class="text-white hover:text-cyan-400 transition-colors">Home</a>
+                    <a href="index.html#menu" class="text-white hover:text-cyan-400 transition-colors">Menu</a>
+                    <a href="index.html#testimonials" class="text-white hover:text-cyan-400 transition-colors">Reviews</a>
+                    <a href="index.html#farm" class="text-white hover:text-cyan-400 transition-colors">Our Farm</a>
+                    <a href="references.html" class="text-white hover:text-cyan-400 transition-colors">References</a>
+                </div>
+            </div>
+    
+            
+            <div class="hidden md:block">
+                <button onclick="window.location.href='index.html#reservations'" class="primary-btn px-6 py-2 rounded-full font-medium">Reserve Now</button>
+            </div>
+        </div>
+    </nav>
 
-body {
-    background-color: var(--primary-bg);
-    color: var(--text-primary);
-    font-family: 'Space Grotesk', sans-serif;
-}
+    <main class="pt-32 px-4 pb-20">
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-4xl font-bold mb-20 text-center">
+                <span class="gradient-text">Our Sustainable</span> Farm
+            </h1>
 
+            <div class="space-y-24">
+                
+                <div class="content-section grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <div>
+                        <img src="https://www.gardentech.com/-/media/project/oneweb/gardentech/images/blog/starting-seeds-right-in-your-garden/starting_seeds_right_in_your_garden_header.jpg" alt="Organic Seeds" class="farm-image object-cover"/>
+                    </div>
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+                        <div class="step-number">01</div>
+                        <div class="text-content space-y-4">
+                            <h2 class="text-2xl font-bold gradient-text">Seed Selection & Planning</h2>
+                            <p class="text-gray-300 text-base">We carefully select organic, heirloom seeds and plan our crop rotation to maintain soil health. Our seasonal planning ensures we grow the perfect vegetables for each season while preserving biodiversity.</p>
+                        </div>
+                    </div>
+                </div>
 
-section {
-    position: relative;
-    background: linear-gradient(180deg, 
-        var(--primary-bg) 0%,
-        var(--secondary-bg) 50%,
-        var(--primary-bg) 100%
-    );
-    transition: background 0.5s ease;
-}
+               
+                <div class="content-section grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <div>
+                        <img src=" https://twin-cities.umn.edu/sites/twin-cities.umn.edu/files/media/Field-of-corn.jpg" alt="Sustainable Farming" class="farm-image object-cover"/>
+                    </div>
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+                        <div class="step-number">02</div>
+                        <div class="text-content space-y-4">
+                            <h2 class="text-2xl font-bold gradient-text">Sustainable Growing Practices</h2>
+                            <p class="text-gray-300 text-base">Our farm uses natural composting, rainwater harvesting, and companion planting techniques. We maintain soil health through organic methods and protect beneficial insects that help our garden thrive.</p>
+                        </div>
+                    </div>
+                </div>
 
-section::before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    left: 0;
-    right: 0;
-    height: 50px;
-    background: linear-gradient(to bottom, 
-        transparent 0%,
-        var(--primary-bg) 100%
-    );
-    z-index: 1; 
-}
+               
+                <div class="content-section grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <div>
+                        <img src="https://st.depositphotos.com/9913494/53193/i/450/depositphotos_531938294-stock-photo-harvesting-vegetable-garden-farmer-freshly.jpg" alt="Harvest Process" class="farm-image object-cover"/>
+                    </div>
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+                        <div class="step-number">03</div>
+                        <div class="text-content space-y-4">
+                            <h2 class="text-2xl font-bold gradient-text">Mindful Harvesting</h2>
+                            <p class="text-gray-300 text-base">We harvest our vegetables at peak ripeness, using traditional hand-picking methods to ensure the highest quality. Each vegetable is carefully inspected and handled with care to maintain its nutritional value.</p>
+                        </div>
+                    </div>
+                </div>
 
-section::after {
-    content: '';
-    position: absolute;
-    bottom: -50px;
-    left: 0;
-    right: 0;
-    height: 50px;
-    background: linear-gradient(to top, 
-        transparent 0%,
-        var(--primary-bg) 100%
-    );
-    z-index: 1;
-}
+              
+                <div class="content-section grid grid-cols-1 md:grid-cols-2 gap-16">
+                    <div>
+                        <img src="https://file-cdn.mercyforanimals.org/mercy4animals.wpengine.com/sites/445/2018/11/Vegan-Chefs.png" alt="Farm to Table" class="farm-image object-cover"/>
+                    </div>
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+                        <div class="step-number">04</div>
+                        <div class="text-content space-y-4">
+                            <h2 class="text-2xl font-bold gradient-text">Farm to Table Journey</h2>
+                            <p class="text-gray-300 text-base">Our harvested vegetables go directly to our restaurant kitchen, where our chefs transform them into delicious vegetarian dishes. This direct farm-to-table approach ensures the freshest, most flavorful dining experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="chat-widget">
+        <button class="chat-button" id="toggleOptions">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="16" x2="12" y2="12"/>
+                <line x1="12" y1="8" x2="12" y2="8"/>
+            </svg>
+        </button>
+    
+        <div class="options-menu" id="optionsMenu">
+            <div class="option-item" id="chatOption">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                <span>Ai Assistant</span>
+            </div>
+            <div class="option-item" id="faqOption">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                <span>FAQ</span>
+            </div>
+        </div>
+    
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <h3>Garden of Eden Assistant</h3>
+            <button class="close-chat" id="closeChat">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                Hello! How can I help you with Garden of Eden today?
+            </div>
+        </div>
+        
+        <div class="chat-input">
+            <input type="text" placeholder="Type your message..." id="messageInput">
+            <button class="send-message" id="sendMessage">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+<button id="backToTop" class="fixed bottom-8 right-8 bg-[#8B9D77] text-white p-4 rounded-full shadow-lg opacity-0 transition-opacity duration-300 hover:bg-[#C5D1BA]" style="z-index: 100;">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+    </svg>
+</button>
+<footer class="bg-[#111827] py-6">
+    <div class="max-w-7xl mx-auto px-4">
+        
+        <div class="flex flex-col lg:flex-row justify-between mb-8">
+            <div class="mb-6 lg:mb-0">
+                <a href="#" class="text-2xl font-bold text-white">Garden of Eden</a>
+                <div class="flex space-x-4 mt-4">
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M20.25 2h-16.5c-1.5 0-2.75 1.25-2.75 2.75v16.5c0 1.5 1.25 2.75 2.75 2.75h16.5c1.5 0 2.75-1.25 2.75-2.75v-16.5c0-1.5-1.25-2.75-2.75-2.75zM10 17.5h-2.75v-8.25h2.75v8.25zM8.625 8c-.9 0-1.625-.725-1.625-1.625s.725-1.625 1.625-1.625 1.625.725 1.625 1.625-.725 1.625-1.625 1.625zM17.5 17.5h-2.75v-4.25c0-1.025-.025-2.35-1.425-2.35-1.425 0-1.65 1.125-1.65 2.275v4.325h-2.75v-8.25h2.625v1.2h.05c.35-.675 1.225-1.425 2.525-1.425 2.75 0 3.25 1.825 3.25 4.175v4.3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-sm font-semibold text-white mb-2">Navigation</h3>
+                    <ul class="space-y-1">
+                        <li><a href="farm.html" class="text-gray-400 hover:text-white text-sm">Explore Our Process</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-white text-sm">FAQ</a></li>
+                        <li><a href="references.html" class="text-gray-400 hover:text-white text-sm">Resources</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white text-sm">Contact Page</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-white mb-2">Vegetarian</h3>
+                    <ul class="space-y-1">
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">Why be vegetarian?</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm">How does vegetarianism impact global food production?</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold text-white mb-2">Farm-to-Table</h3>
+                    <ul class="space-y-1">
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">About Farm-to-Table</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">How does farm-to-table impact local farmers?</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Does this process use more land and water?</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white text-sm">Can farm-to-table work in urban areas without increasing emissions?</a></li>
+                </ul>
+                </div>
+            </div>
+        </div>
+        
+       
+        <div class="border-t border-gray-800 pt-4">
+            <div class="flex flex-wrap gap-4 text-sm text-gray-400">
+                <p><span class="font-medium">Legal Name:</span> Garden of Eden</p>
+                <span class="hidden sm:inline text-gray-400">•</span>
+                <p><span class="font-medium">Location:</span> 23512 Nature Way
+                    Bithlo, TX 32820</p>
+                <span class="hidden sm:inline text-gray-400">•</span>
+                <p><span class="font-medium">Support:</span> support@gardenofeden.com</p>
+                <span class="hidden sm:inline text-gray-400">•</span>
+                <p><span class="font-medium">Hours of Operation:</span> Monday - Sunday, 11:30AM - 8:30PM</p>
+            </div>
+        </div>
+    </div>
+</footer>
+    
 
-.navbar {
-    background: #061221 !important;
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
-}
-.navbar .primary-btn {
-    padding: 0.5rem 1.25rem;  
-    font-size: 0.875rem;      
-    transform: translateY(-1px); 
-    margin-left: 1rem;       
-    line-height: 1.25;        
-}
-
-.navbar a {
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.navbar a:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -2px;
-    left: 0;
-    background: rgba(150, 235, 154, 0.8);
-    transition: all 0.2s ease;
-}
-
-.navbar a:hover:after {
-    width: 100%;
-}
-
-.navbar.scrolled {
-    background-color: #0d1d31 !important;
-}
-
-.gradient-text {
-    background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-
-.step-number {
-    background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--primary-bg);
-    font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 2;
-}
-
-.timeline-container {
-    position: relative;
-}
-
-.timeline-line {
-    position: absolute;
-    left: 29px;
-    top: 60px;
-    bottom: 0;
-    width: 2px;
-    background: var(--accent-color);
-    opacity: 0.5;
-    z-index: 1;
-}
-
-.farm-image {
-    border: 2px solid var(--accent-color);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    height: 500px;
-    width: 100%;
-}
-
-.farm-image:hover {
-    transform: scale(1.02);
-}
-
-.content-section {
-    min-height: 500px;
-    display: flex;
-    align-items: center;
-    margin-bottom: 6rem;
-}
-
-.text-content {
-    padding-left: 3rem;
-}
-
-.primary-btn {
-    background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
-    color: var(--primary-bg);
-    transition: transform 0.3s ease;
-}
-
-.primary-btn:hover {
-    transform: scale(1.05);
-}
-
-main {
-    background: linear-gradient(180deg, 
-        var(--primary-bg) 0%,
-        var(--secondary-bg) 50%,
-        var(--primary-bg) 100%
-    );
-}
-        .nav-progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
-    z-index: 60;
-    transition: width 0.3s ease-out;
-    transform-origin: left;
-    box-shadow: 0 0 10px rgba(139, 157, 119, 0.4);
-}
-
-.nav-progress.active {
-    width: 100%;
-}
-
-
-.nav-progress.active {
-    box-shadow: 0 0 10px rgba(139, 157, 119, 0.4);
-}
-
-
-.fade-up {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeUp 0.8s ease-out forwards;
-}
-
-.fade-up-delay-1 {
-    animation-delay: 0.2s;
-}
-
-.fade-up-delay-2 {
-    animation-delay: 0.4s;
-}
-
-.fade-up-delay-3 {
-    animation-delay: 0.6s;
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+    <script>
+       
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+    <script>
+        window.addEventListener('scroll', () => {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) { 
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    </script>
+</body>
+</html>
