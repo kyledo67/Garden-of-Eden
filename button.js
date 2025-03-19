@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function() {
     const toggleOptions = document.getElementById('toggleOptions');
     const optionsMenu = document.getElementById('optionsMenu');
