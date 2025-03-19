@@ -34,7 +34,7 @@ if (processButton) {
     processButton.onclick = function(e) {
         e.preventDefault();
         progressBar.classList.add('active');
-        setTimeout(() => {
+        setTimeout(() => { 
             window.location.href = 'farm.html';
         }, 600);
         return false;
