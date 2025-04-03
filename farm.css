@@ -91,7 +91,7 @@ section::after {
     background-color: #0d1d31 !important;
 }
 
-.gradient-text {
+.gradient-text { 
     background: linear-gradient(90deg, var(--accent-color), var(--accent-color-light));
     -webkit-background-clip: text;
     background-clip: text;
