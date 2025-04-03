@@ -829,9 +829,9 @@ box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 .testimonial-card {
     flex: 0 0 auto;
     width: 600px;
-    background: #362b20;
+    background: transparent;
     backdrop-filter: blur(10px);
-    border: 1.2px solid #f5f2f220;
+    border: 1px solid #a1a1a1;
     border-radius: 1.5rem;
     transition: all 0.3s ease;
     overflow: hidden;
