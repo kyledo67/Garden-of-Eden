@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="navigation.js" defer></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="contact.css">
     <script src="reserve.js">defer</script>
     <script src="gpt.js" defer></script>
     <script src="button.js" defer></script>
@@ -17,32 +16,57 @@
 
 </head>
 <style>
-    footer {
-    position: relative;
-    background: linear-gradient(180deg,
-        var(--secondary-bg) 0%,
-        var(--primary-bg) 100%
-    );
-    margin-top: -1px;
-    z-index: 1;
-    padding-top: 8rem;
-}
+    main {
+            background: none; 
+        }
+
+        section {
+            background: none; 
+            position: relative;
+        }
 
 
-section {
-    position: relative;
-    margin-bottom: -2rem; 
-    padding-bottom: 4rem;
-    z-index: 1;
-}
+        section::before, section::after {
+            display: none; 
+        }
 
-section + section {
-    z-index: 2; 
-}
 
-.contact-section > *:last-child {
-    margin-bottom: 0;
-}
+        .section-content {
+            background: transparent;
+            color: var(--text-primary);
+        }
+
+
+
+
+        footer {
+            background: linear-gradient(to bottom, transparent, var(--primary-bg) 30%);
+            position: relative;
+            margin-top: 0;
+            padding-top: 4rem;
+            
+        }
+
+        body:before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background: linear-gradient(180deg, 
+                var(--primary-bg) 0%,
+                var(--secondary-bg) 70%,
+                var(--primary-bg) 100%
+            );
+        }
+
+        body {
+            position: relative;
+            background: transparent;
+            min-height: 100vh;
+        }
 </style>
 <body class="min-h-screen">
     <div id="page-transition" class="fixed inset-0 bg-[#2C1810] z-[9999] pointer-events-none"></div>
