@@ -11,9 +11,57 @@
    
     <script src="button.js" defer></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="contact.css">
+ 
    
-    
+<style>
+     section {
+            background: none; 
+            position: relative;
+        }
+
+
+        section::before, section::after {
+            display: none; 
+        }
+
+
+        .section-content {
+            background: transparent;
+            color: var(--text-primary);
+        }
+
+
+
+
+        footer {
+            background: linear-gradient(to bottom, transparent, var(--primary-bg) 30%);
+            position: relative;
+            margin-top: 0;
+            padding-top: 4rem;
+            
+        }
+
+        body:before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
+            background: linear-gradient(180deg, 
+                var(--primary-bg) 0%,
+                var(--secondary-bg) 70%,
+                var(--primary-bg) 100%
+            );
+        }
+
+        body {
+            position: relative;
+            background: transparent;
+            min-height: 100vh;
+        }
+</style>  
     
 </head>
 <body class="min-h-screen">
