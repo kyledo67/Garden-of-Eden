@@ -1,6 +1,6 @@
 :root {
     --primary-bg: #2C1810;
-    --secondary-bg: #4A3B2C;
+    --secondary-bg: #2C1810;
     --accent-color: #8B9D77;
     --accent-color-light: #C5D1BA;
     --text-primary: #F5F5F5;
@@ -37,7 +37,9 @@ section::before {
     );
     z-index: 1; 
 }
-
+main {
+    background: none; 
+}
 section::after {
     content: '';
     position: absolute;
@@ -162,14 +164,8 @@ section::after {
     transform: scale(1.05);
 }
 
-main {
-    background: linear-gradient(180deg, 
-        var(--primary-bg) 0%,
-        var(--secondary-bg) 50%,
-        var(--primary-bg) 100%
-    );
-}
-        .nav-progress {
+
+    .nav-progress {
     position: fixed;
     top: 0;
     left: 0;
