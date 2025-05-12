@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const response = await fetch('https://api.openai.com/v1/chat/completions', {
                 method: 'POST',
                 headers: {
-                    'Authorization': 'Bearer ' + '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',
+                    'Authorization': 'Bearer ' + 'API_KEY',
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
