@@ -31,5 +31,4 @@ To view the project locally:
    git clone https://github.com/kyledo67/Garden-of-Eden.git
 
 2. Or View it hosted on Vercel
-   ```bash
    https://projectwebsitetsa.vercel.app/index.html
