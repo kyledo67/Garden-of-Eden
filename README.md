@@ -29,3 +29,7 @@ To view the project locally:
 1. Clone the repository:
    ```bash
    git clone https://github.com/kyledo67/Garden-of-Eden.git
+
+2. Or View it hosted on Vercel
+   ```bash
+   https://projectwebsitetsa.vercel.app/index.html
