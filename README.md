@@ -1,6 +1,6 @@
 # Garden of Eden
 
-**Garden of Eden** is a website designed and developed for the TSA WebMaster competition alongside 2 friends. It won 3rd in regionals and semi-finalist in state. The prompt was to make a vegetarian restaurant that incorporates a farm-to-table approach.
+**Garden of Eden** is a website designed and developed for the Regionals Webmaster competition alongside 2 friends. It won 3rd in regionals and advanced to state. The prompt was to make a vegetarian restaurant that incorporates a farm-to-table approach.
 
 ## Project Goals
 - Make a cool website.
