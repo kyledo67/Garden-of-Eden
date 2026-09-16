@@ -7,12 +7,26 @@
 - Emphasize the importance of biodiversity and sustainable food systems.
 - Simulate a real-world restaurant experience through visual design and functionality.
 
-## Technologies Used
+## Project structure
 
-- **HTML** – Used to structure the content and pages.
-- **CSS** – To make it look pretty.
-- **JavaScript** – To add interactivity and to control backend behavior.
+- `frontend/` — React and Vite single-page application, styles, and client-side interactions.
+- `backend/` — Node HTTP endpoints for the chatbot and contact form. Both are intentionally safe placeholders: chat reports that it is not configured and contact submissions are discarded.
 
 ## Setup
-To view the project:
-https://projectwebsitetsa.vercel.app/index.html
+
+Run the frontend from `frontend/`:
+
+```sh
+npm install
+npm run dev
+```
+
+Optionally run the placeholder API from `backend/` in another terminal:
+
+```sh
+npm run dev
+```
+
+Copy `frontend/.env.example` or `backend/.env.example` when configuration is needed. The API key and contact recipient are intentionally blank.
+
+The frontend development server proxies `/api` requests to `http://localhost:3001`.
