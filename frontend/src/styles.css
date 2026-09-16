@@ -10,6 +10,16 @@ button { font: inherit; }
 .page-content { padding-top: 7rem; min-height: 70vh; }
 .modal-panel { position: relative; }
 
+/* Article content should not inherit the landing-page gradient seams. */
+.page-content > .max-w-2xl > section {
+  background: transparent;
+}
+
+.page-content > .max-w-2xl > section::before,
+.page-content > .max-w-2xl > section::after {
+  display: none;
+}
+
 /* React equivalents of the original landing-page motion. */
 .hero-section {
   overflow: hidden;
