@@ -12,21 +12,6 @@
 - `frontend/` — React and Vite single-page application, styles, and client-side interactions.
 - `backend/` — Node HTTP endpoints for the chatbot and contact form. Both are intentionally safe placeholders: chat reports that it is not configured and contact submissions are discarded.
 
-## Setup
+## See the website
 
-Run the frontend from `frontend/`:
-
-```sh
-npm install
-npm run dev
-```
-
-Optionally run the placeholder API from `backend/` in another terminal:
-
-```sh
-npm run dev
-```
-
-Copy `frontend/.env.example` or `backend/.env.example` when configuration is needed. The API key and contact recipient are intentionally blank.
-
-The frontend development server proxies `/api` requests to `http://localhost:3001`.
+https://projectwebsitetsa.vercel.app/
