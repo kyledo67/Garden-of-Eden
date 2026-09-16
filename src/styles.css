@@ -18,7 +18,7 @@ button { font: inherit; }
 
 .hero-section::before,
 .hero-section::after {
-  content: '✦';
+  content: '🌿';
   position: absolute;
   z-index: -1;
   color: var(--accent-color-light);
@@ -38,10 +38,10 @@ button { font: inherit; }
   max-width: none;
   gap: 1.5rem;
   padding: 0 1.5rem;
-  animation: reviews-glide 11s ease-in-out infinite alternate;
+  animation: reviews-glide 18s linear infinite;
 }
 
-#testimonials .testimonial-card { width: min(20rem, calc(100vw - 3rem)); }
+#testimonials .testimonial-card { width: min(20rem, calc(100vw - 3rem)); flex: 0 0 min(20rem, calc(100vw - 3rem)); }
 #testimonials .max-w-5xl:hover { animation-play-state: paused; }
 
 @keyframes hero-content-rise {
@@ -55,8 +55,8 @@ button { font: inherit; }
 }
 
 @keyframes reviews-glide {
-  from { transform: translateX(0); }
-  to { transform: translateX(calc(-100vw + 22rem)); }
+  from { transform: translateX(-33.333%); }
+  to { transform: translateX(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
