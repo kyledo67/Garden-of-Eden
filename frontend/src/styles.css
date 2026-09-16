@@ -20,6 +20,15 @@ button { font: inherit; }
   display: none;
 }
 
+.page-content > .newsletter-section {
+  background: transparent;
+}
+
+.page-content > .newsletter-section::before,
+.page-content > .newsletter-section::after {
+  display: none;
+}
+
 /* React equivalents of the original landing-page motion. */
 .hero-section {
   overflow: hidden;
