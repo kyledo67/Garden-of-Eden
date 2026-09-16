@@ -9,3 +9,56 @@ html { scroll-behavior: smooth; }
 button { font: inherit; }
 .page-content { padding-top: 7rem; min-height: 70vh; }
 .modal-panel { position: relative; }
+
+/* React equivalents of the original landing-page motion. */
+.hero-section {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-section::before,
+.hero-section::after {
+  content: '✦';
+  position: absolute;
+  z-index: -1;
+  color: var(--accent-color-light);
+  font-size: clamp(4rem, 12vw, 9rem);
+  opacity: .22;
+  animation: hero-leaf-drift 8s ease-in-out infinite;
+}
+
+.hero-section::before { top: 16%; left: 10%; transform: rotate(-28deg); }
+.hero-section::after { right: 12%; bottom: 14%; animation-delay: -4s; }
+.hero-section > div { animation: hero-content-rise .8s ease-out both; }
+
+#testimonials { overflow: hidden; }
+#testimonials .max-w-5xl {
+  display: flex;
+  width: max-content;
+  max-width: none;
+  gap: 1.5rem;
+  padding: 0 1.5rem;
+  animation: reviews-glide 11s ease-in-out infinite alternate;
+}
+
+#testimonials .testimonial-card { width: min(20rem, calc(100vw - 3rem)); }
+#testimonials .max-w-5xl:hover { animation-play-state: paused; }
+
+@keyframes hero-content-rise {
+  from { opacity: 0; transform: translateY(1.5rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-leaf-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-20deg); }
+  50% { transform: translate3d(1.8rem, -2.5rem, 0) rotate(16deg); }
+}
+
+@keyframes reviews-glide {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100vw + 22rem)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-section::before, .hero-section::after, .hero-section > div, #testimonials .max-w-5xl { animation: none; }
+}
